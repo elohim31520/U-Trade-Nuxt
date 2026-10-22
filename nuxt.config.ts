@@ -4,6 +4,7 @@ import path from 'node:path'
 import matter from 'gray-matter'
 const API_BASE_URL = process.env.VITE_API_URL
 const KV_URL = process.env.VITE_KV_HOST
+const WEB_DOMAIN = process.env.WEB_DOMAIN
 
 const generateBlogPostsPlugin = (lang: string) => {
 	return {
@@ -65,6 +66,7 @@ export default defineNuxtConfig({
 		'@vant/nuxt',
 		'@vueuse/nuxt',
 		'./modules/nuxt4-lodash',
+		'@nuxtjs/sitemap',
 		[
 			'nuxt-vue3-google-signin',
 			{
@@ -72,6 +74,9 @@ export default defineNuxtConfig({
 			},
 		],
 	],
+	site: {
+		url: WEB_DOMAIN
+	},
 	i18n: {
 		locales: [
 			{ code: 'en', file: 'en.json', language: 'en-US' },
