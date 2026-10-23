@@ -1,6 +1,5 @@
 <template>
 	<div class="min-h-screen flex flex-col max-w-[480px] mx-auto bg-gray-100 pb-[6rem]">
-		<AppLoadingSpinner color="#F88379" :height="3" :throttle="200" />
 		<AppHeader v-if="showHeader" />
 
 		<SideMenu />
