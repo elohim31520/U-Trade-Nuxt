@@ -249,7 +249,8 @@
 		"text": "點我看更多"
 	},
 	"hot_companies": {
-		"explore_hot_companies": "探索熱門公司"
+		"explore_hot_companies": "探索熱門公司",
+		"subtitle": "查看前瞻本益比、EPS 與成交量"
 	},
 	"about": {
 		"title": "關於此應用",

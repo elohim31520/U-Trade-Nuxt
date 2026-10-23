@@ -249,7 +249,8 @@
 		"text": "See More"
 	},
 	"hot_companies": {
-		"explore_hot_companies": "Explore Hot Companies"
+		"explore_hot_companies": "Explore Hot Companies",
+		"subtitle": "Forward P/E, EPS and volume at a glance"
 	},
 	"about": {
 		"title": "About This Application",

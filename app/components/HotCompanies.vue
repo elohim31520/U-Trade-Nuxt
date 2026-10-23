@@ -1,59 +1,100 @@
 <template>
-	<div class="space-y-4 p-2">
-		<div class="text-xl font-bold text-#434343 mb-2">
-			{{ $t('hot_companies.explore_hot_companies') }}
-		</div>
-		<div class="grid grid-cols-3 gap-5 mb-5 mx-2">
-			<div v-for="company in companies" :key="company.id" @click="handleClick(company.id)"
-				class="group relative cursor-pointer overflow-hidden rounded-lg shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
-				<img :src="company.useLogoPath ? `/logo/${company.id}.svg` : `/hot/${company.id}.webp`"
-					class="h-full w-full transition-transform duration-300 group-hover:scale-110 object-cover bg-#fff" />
-				<div
-					class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-				</div>
-				<div
-					class="absolute bottom-0 left-0 w-full p-4 transform-gpu translate-y-4 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100">
-					<div class="text-base font-bold uppercase tracking-wider text-white">
-						{{ company.id }}
-					</div>
-				</div>
+	<section>
+		<header class="mb-5 flex items-end justify-between gap-3 px-1">
+			<div class="min-w-0">
+				<h2 class="text-lg font-bold leading-tight tracking-tight text-gray-900">
+					{{ $t('hot_companies.explore_hot_companies') }}
+				</h2>
+				<p class="mt-1 text-xs text-gray-400">{{ $t('hot_companies.subtitle') }}</p>
 			</div>
+			<span
+				class="shrink-0 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold tabular-nums text-primary">
+				{{ companies.length }}
+			</span>
+		</header>
+
+		<div class="grid grid-cols-4 gap-x-3 gap-y-4">
+			<NuxtLink v-for="company in companies" :key="company.id" :to="localePath(`/company-metrics/${company.id}`)"
+				class="group flex min-w-0 flex-col items-center outline-none">
+				<span
+					class="logo-tile relative block aspect-square w-full overflow-hidden rounded-[22%] bg-white transition duration-300 ease-out group-hover:-translate-y-1 group-active:scale-95 group-focus-visible:ring-2 group-focus-visible:ring-primary">
+					<img :src="company.useLogoPath ? `/logo/${company.id}.svg` : `/hot/${company.id}.webp`"
+						:alt="`${company.name} logo`" loading="lazy" draggable="false"
+						class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
+				</span>
+				<span
+					class="mt-2 max-w-full truncate text-xs font-semibold uppercase leading-none tracking-wider text-gray-800">
+					{{ company.id }}
+				</span>
+				<span class="mt-1 max-w-full truncate text-[10.5px] leading-tight text-gray-400">
+					{{ company.name }}
+				</span>
+			</NuxtLink>
 		</div>
-	</div>
+	</section>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 const localePath = useLocalePath()
 
-const companies = ref([
+const companies = [
 	// --- 熱門建議標的 ---
-	{ id: 'spcx', useLogoPath: true },
-	{ id: 'sndk', useLogoPath: true },
-	{ id: 'mu', useLogoPath: true },
-	{ id: 'cohr', useLogoPath: true },
-	{ id: 'lite', useLogoPath: true },
-	{ id: 'tsm', useLogoPath: true },
-	{ id: 'amd', useLogoPath: true },
-	{ id: 'mstr', useLogoPath: true },
-	{ id: 'hood', useLogoPath: true },
-	{ id: 'vst', useLogoPath: true },
-	{ id: 'app', useLogoPath: true },
-	{ id: 'sofi', useLogoPath: true },
-	{ id: 'avgo', useLogoPath: true },
-	{ id: 'crwv', useLogoPath: true },
-	{ id: 'oklo', useLogoPath: true },
-	{ id: 'tsla' },
-	{ id: 'nvda' },
-	{ id: 'pltr' },
-	{ id: 'amzn' },
-	{ id: 'goog' },
-	{ id: 'meta' },
-	{ id: 'msft' },
-	{ id: 'aapl', useLogoPath: true },
-])
-
-const handleClick = (symbol: string) => {
-	navigateTo(localePath(`/company-metrics/${symbol}`))
-}
+	{ id: 'spcx', name: 'SpaceX', useLogoPath: true },
+	{ id: 'sndk', name: 'Sandisk', useLogoPath: true },
+	{ id: 'mu', name: 'Micron', useLogoPath: true },
+	{ id: 'cohr', name: 'Coherent', useLogoPath: true },
+	{ id: 'lite', name: 'Lumentum', useLogoPath: true },
+	{ id: 'tsm', name: 'TSMC', useLogoPath: true },
+	{ id: 'amd', name: 'AMD', useLogoPath: true },
+	{ id: 'mstr', name: 'Strategy', useLogoPath: true },
+	{ id: 'hood', name: 'Robinhood', useLogoPath: true },
+	{ id: 'vst', name: 'Vistra', useLogoPath: true },
+	{ id: 'app', name: 'AppLovin', useLogoPath: true },
+	{ id: 'sofi', name: 'SoFi', useLogoPath: true },
+	{ id: 'avgo', name: 'Broadcom', useLogoPath: true },
+	{ id: 'crwv', name: 'CoreWeave', useLogoPath: true },
+	{ id: 'oklo', name: 'Oklo', useLogoPath: true },
+	{ id: 'tsla', name: 'Tesla' },
+	{ id: 'nvda', name: 'NVIDIA' },
+	{ id: 'pltr', name: 'Palantir' },
+	{ id: 'amzn', name: 'Amazon' },
+	{ id: 'goog', name: 'Alphabet' },
+	{ id: 'meta', name: 'Meta' },
+	{ id: 'msft', name: 'Microsoft' },
+	{ id: 'aapl', name: 'Apple', useLogoPath: true },
+]
 </script>
+
+<style scoped>
+/* 圖磚：細描邊 + 內側頂部高光 + 分層柔影，讓各家品牌底色看起來是同一套 */
+.logo-tile {
+	box-shadow:
+		0 1px 2px rgb(16 24 40 / 0.06),
+		0 6px 16px -4px rgb(16 24 40 / 0.12);
+}
+
+.logo-tile::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	pointer-events: none;
+	box-shadow:
+		inset 0 0 0 1px rgb(0 0 0 / 0.06),
+		inset 0 1px 0 rgb(255 255 255 / 0.35);
+}
+
+.group:hover .logo-tile {
+	box-shadow:
+		0 2px 4px rgb(16 24 40 / 0.06),
+		0 14px 26px -6px rgb(16 24 40 / 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.logo-tile,
+	.logo-tile img {
+		transition: none;
+	}
+}
+</style>

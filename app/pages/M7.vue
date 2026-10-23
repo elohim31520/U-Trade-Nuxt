@@ -5,7 +5,8 @@
 			<p class="mt-1 text-sm text-gray-400">{{ $t('m7.subtitle', { days: DAYS }) }}</p>
 		</header>
 
-		<nav class="no-scrollbar sticky top-12 z-40 -mx-4 flex gap-2 overflow-x-auto bg-gray-100/90 px-4 py-2 backdrop-blur">
+		<nav
+			class="no-scrollbar sticky top-12 z-40 -mx-4 flex gap-2 overflow-x-auto bg-gray-100/90 px-4 py-2 backdrop-blur">
 			<button v-for="symbol in allSymbols" :key="symbol" type="button"
 				class="flex-y-center shrink-0 gap-1.5 rounded-full border border-gray-100 bg-white py-1 pl-1.5 pr-3 text-[13px] font-[500] transition active:scale-95"
 				@click="scrollToCard(symbol)">
@@ -25,7 +26,8 @@
 				</div>
 				<div v-if="stats[symbol]" class="shrink-0 text-right">
 					<div class="text-xl font-bold leading-tight tabular-nums">
-						{{ stats[symbol].latest.toFixed(1) }}<span class="ml-0.5 text-xs font-[500] text-gray-400">x</span>
+						{{ stats[symbol].latest.toFixed(1) }}<span
+							class="ml-0.5 text-xs font-[500] text-gray-400">x</span>
 					</div>
 					<div :class="[
 						'mt-0.5 inline-block rounded-md px-1.5 text-xs font-semibold tabular-nums',
@@ -37,17 +39,19 @@
 			</div>
 
 			<div class="px-2 pb-3 pt-2">
-				<LazyLineChart v-if="metrics[symbol].length" :title="`${symbol} ${$t('company_metrics.pe_forwards_title')}`"
-					:chart-data="metrics[symbol]" x-axis-key="ct" series-key="fpe" height="220px" compact />
+				<LazyLineChart v-if="metrics[symbol].length"
+					:title="`${symbol} ${$t('company_metrics.pe_forwards_title')}`" :chart-data="metrics[symbol]"
+					x-axis-key="ct" series-key="fpe" height="220px" compact />
 				<button v-else-if="failed[symbol]" type="button"
-					class="flex-center h-[220px] w-full rounded-xl bg-gray-50 text-sm text-gray-400" @click="getMetrics(symbol)">
+					class="flex-center h-[220px] w-full rounded-xl bg-gray-50 text-sm text-gray-400"
+					@click="getMetrics(symbol)">
 					{{ $t('m7.load_failed') }}
 				</button>
 				<div v-else class="animate-gray mx-2 h-[220px] rounded-xl bg-gray-100" />
 			</div>
 		</section>
 
-		<div class="shadow-card-primary rounded-2xl border border-gray-100 bg-white py-2">
+		<div class="shadow-card-primary rounded-2xl border border-gray-100 bg-white px-4 py-5">
 			<HotCompanies />
 		</div>
 	</div>
