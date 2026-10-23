@@ -277,6 +277,7 @@
 	},
 	"news": {
 		"title": "News Info",
+		"subtitle": "US market news and financial headlines",
 		"meta_title": "US Stock Market News - UrTrade",
 		"meta_description": "Stay updated with the latest US stock market news, company announcements, and financial headlines.",
 		"searchPlaceholder": "Search News",

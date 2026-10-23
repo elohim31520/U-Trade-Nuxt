@@ -277,6 +277,7 @@
 	},
 	"news": {
 		"title": "最新資訊",
+		"subtitle": "美股市場新聞與財經頭條",
 		"meta_title": "美股市場新聞 - UrTrade",
 		"meta_description": "掌握最新美股市場新聞、公司公告與財經頭條。",
 		"searchPlaceholder": "搜尋新聞",
