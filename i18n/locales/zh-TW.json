@@ -21,6 +21,10 @@
 		"meta_title": "{symbol} 股票財務指標 - UrTrade",
 		"meta_description": "查看 {symbol} 的前瞻與歷史本益比、EPS 趨勢及成交量圖表。"
 	},
+	"m7": {
+		"subtitle": "近 {days} 天的前瞻本益比走勢",
+		"load_failed": "載入失敗，點擊重試"
+	},
 	"my": {
 		"cash": "現金",
 		"portfolio": "持倉",

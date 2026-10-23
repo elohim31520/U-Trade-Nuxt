@@ -21,6 +21,10 @@
 		"meta_title": "{symbol} Stock Metrics - UrTrade",
 		"meta_description": "View {symbol} forward and trailing P/E ratios, EPS trends, and trading volume charts on UrTrade."
 	},
+	"m7": {
+		"subtitle": "Forward P/E trend over the last {days} days",
+		"load_failed": "Failed to load. Tap to retry"
+	},
 	"my": {
 		"cash": "Cash",
 		"portfolio": "Portfolio",
