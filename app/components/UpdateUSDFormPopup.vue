@@ -5,7 +5,7 @@
 				{{ isUpdateMode ? $t('update_usd_form_popup.update_title') : $t('update_usd_form_popup.add_title') }}
 			</div>
 			<van-form ref="formRef" @submit="onSubmit">
-				<van-cell-group class="!rounded-xl overflow-hidden">
+				<van-cell-group class="rounded-xl! overflow-hidden">
 					<van-field v-model="form.balance" type="number" name="balance"
 						:label="$t('update_usd_form_popup.usd_balance_label')"
 						:placeholder="$t('update_usd_form_popup.usd_balance_placeholder')" :rules="[

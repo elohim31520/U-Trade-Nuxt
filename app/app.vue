@@ -4,7 +4,7 @@
 
 		<SideMenu />
 
-		<main :class="['flex-grow transition-all duration-300', showHeader ? 'pt-[3.75rem]' : 'pt-0']">
+		<main :class="['grow transition-all duration-300', showHeader ? 'pt-[3.75rem]' : 'pt-0']">
 			<NuxtRouteAnnouncer />
 			<NuxtPage />
 		</main>

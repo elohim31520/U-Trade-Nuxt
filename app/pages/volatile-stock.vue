@@ -1,10 +1,10 @@
 <template>
 	<div class="min-h-screen bg-gray-50">
 		<!-- 過濾工具列 -->
-		<div class="sticky top-0 z-10 bg-white/90 backdrop-blur-sm border-b border-gray-100 px-3 py-2.5">
+		<div class="sticky top-0 z-10 bg-white/90 backdrop-blur-xs border-b border-gray-100 px-3 py-2.5">
 			<van-row gutter="8">
 				<van-col span="8">
-					<van-button size="small" block hairline round class="!text-xs !font-semibold" @click="toggleSort">
+					<van-button size="small" block hairline round class="text-xs! font-semibold!" @click="toggleSort">
 						{{ sortOrder === 'asc' ? $t('volatile_stock.sort.asc') : $t('volatile_stock.sort.desc') }}
 					</van-button>
 				</van-col>

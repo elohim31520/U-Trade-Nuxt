@@ -5,7 +5,7 @@
 				{{ $t('transaction_form_popup.update_holding') }}
 			</div>
 			<van-form ref="formRef" @submit="onSubmit">
-				<van-cell-group class="!rounded-xl overflow-hidden">
+				<van-cell-group class="rounded-xl! overflow-hidden">
 					<van-field v-model="form.stockSymbol" name="stockSymbol" :label="$t('transaction.stock_id')"
 						:placeholder="$t('transaction.enter_stock_id')"
 						:rules="[{ required: true, message: $t('transaction.enter_stock_id') }]" readonly />

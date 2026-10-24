@@ -2,7 +2,7 @@
 	<div class="bg-white fixed bottom-0 z-50 px-2.5 w-full max-w-[480px] left-1/2 -translate-x-1/2">
 		<div class="grid grid-cols-5">
 			<div v-for="(tab, index) in tabItems" :key="index" class="flex-center flex-col py-1" :class="{
-				'bg-gradient-to-r from-[#EC09F8] to-[#B732FF] bg-clip-text text-transparent': activeTab === tab.name,
+				'bg-linear-to-r from-[#EC09F8] to-[#B732FF] bg-clip-text text-transparent': activeTab === tab.name,
 			}" @click="handleClick(tab.to)">
 				<SvgIcon size="1.5rem" :name="activeTab === tab.name ? tab.activeIcon : tab.defaultIcon"
 					class="mb-0.5" />

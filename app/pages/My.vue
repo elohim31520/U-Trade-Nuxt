@@ -61,19 +61,19 @@
 						</div>
 						<div class="flex-y-center gap-2 text-white text-xs font-[500]">
 							<template v-if="userStore.isLogin">
-								<div class="flex-y-center gap-3 bg-gradient-to-r from-[#FF9021] to-[#FFB60C] rounded-2xl px-1 py-1"
+								<div class="flex-y-center gap-3 bg-linear-to-r from-[#FF9021] to-[#FFB60C] rounded-2xl px-1 py-1"
 									@click="showUpdateUSDFormPopup = true">
 									<SvgIcon name="icon_redeem" size="1.2rem" color="#fff" />
 									{{ $t('my.update_balance') }}
 								</div>
 								<div @click="navigateTo(localePath('/change-password'))"
-									class="flex-y-center gap-3 ml-5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl px-1 py-1">
+									class="flex-y-center gap-3 ml-5 bg-linear-to-r from-cyan-500 to-blue-500 rounded-2xl px-1 py-1">
 									<SvgIcon name="icon_room_w" size="1.2rem" />
 									{{ $t('my.change_password') }}
 								</div>
 							</template>
 							<template v-else>
-								<div class="flex-y-center gap-3 bg-gradient-to-r from-[#E124AF] to-[#CC0EFB] rounded-2xl px-1 py-1"
+								<div class="flex-y-center gap-3 bg-linear-to-r from-[#E124AF] to-[#CC0EFB] rounded-2xl px-1 py-1"
 									@click="navigateTo(localePath('/login'))">
 									<SvgIcon name="icon_room_w" size="1.2rem" color="#fff" />
 									{{ $t('my.login') }}

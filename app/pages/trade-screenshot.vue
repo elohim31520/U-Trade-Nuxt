@@ -12,7 +12,7 @@
             </div>
 
             <!-- 上傳區塊 -->
-            <div class="bg-white rounded-lg shadow-sm my-4">
+            <div class="bg-white rounded-lg shadow-xs my-4">
                 <van-uploader v-model="fileList" :max-count="1" :max-size="5 * 1024 * 1024" :after-read="afterRead"
                     :before-read="beforeRead" @oversize="onOversize" @delete="onDelete" @click-preview="onClickPreview">
                     <div v-if="fileList.length === 0"

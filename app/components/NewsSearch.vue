@@ -4,7 +4,7 @@
         <div
             class="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-slate-100 px-2 py-2 flex items-center">
             <van-search v-model="searchKeyword" :placeholder="t('news.searchPlaceholder')" show-action
-                :action-text="t('common.cancel', '取消')" autofocus class="flex-1 !bg-transparent !px-0"
+                :action-text="t('common.cancel', '取消')" autofocus class="flex-1 bg-transparent! px-0!"
                 @search="onSearch" @action="$emit('close')" />
         </div>
 

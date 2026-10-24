@@ -6,7 +6,7 @@
 		</header>
 
 		<nav
-			class="no-scrollbar sticky top-12 z-40 -mx-4 flex gap-2 overflow-x-auto bg-gray-100/90 px-4 py-2 backdrop-blur">
+			class="no-scrollbar sticky top-12 z-40 -mx-4 flex gap-2 overflow-x-auto bg-gray-100/90 px-4 py-2 backdrop-blur-sm">
 			<button v-for="symbol in allSymbols" :key="symbol" type="button"
 				class="flex-y-center shrink-0 gap-1.5 rounded-full border border-gray-100 bg-white py-1 pl-1.5 pr-3 text-[13px] font-[500] transition active:scale-95"
 				@click="scrollToCard(symbol)">

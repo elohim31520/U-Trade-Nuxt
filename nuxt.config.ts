@@ -2,6 +2,7 @@ const GOOGLE_CLIENT_ID = process.env.VITE_GOOGLE_CLIENT_ID
 import fs from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
+import tailwindcss from '@tailwindcss/vite'
 const API_BASE_URL = process.env.VITE_API_URL
 const KV_URL = process.env.VITE_KV_HOST
 const WEB_DOMAIN = process.env.WEB_DOMAIN
@@ -61,7 +62,6 @@ export default defineNuxtConfig({
 	modules: [
 		'nitro-cloudflare-dev',
 		'@nuxtjs/i18n',
-		'@nuxtjs/tailwindcss',
 		'@pinia/nuxt',
 		'@vant/nuxt',
 		'@vueuse/nuxt',
@@ -115,7 +115,7 @@ export default defineNuxtConfig({
 				defineModel: true,
 			},
 		},
-		plugins: [generateBlogPostsPlugin('zh'), generateBlogPostsPlugin('en')],
+		plugins: [tailwindcss(), generateBlogPostsPlugin('zh'), generateBlogPostsPlugin('en')],
 		base: '/',
 		build: {
 			assetsDir: '_nuxt',

@@ -1,7 +1,7 @@
 <template>
 	<div class="bg-white min-h-screen">
 		<!-- Header -->
-		<div class="sticky top-0 z-10 bg-white/90 backdrop-blur-sm border-b border-gray-100 px-4 py-3">
+		<div class="sticky top-0 z-10 bg-white/90 backdrop-blur-xs border-b border-gray-100 px-4 py-3">
 			<h1 class="text-lg font-semibold text-gray-800 tracking-tight">
 				{{ $t('companies.title') }}
 			</h1>

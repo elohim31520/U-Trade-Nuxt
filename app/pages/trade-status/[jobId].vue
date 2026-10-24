@@ -2,7 +2,7 @@
     <div class="min-h-screen bg-[#0f0f13] text-white font-mono">
         <!-- Header -->
         <div
-            class="sticky top-0 z-10 bg-[#0f0f13]/90 backdrop-blur border-b border-white/5 px-4 py-3 flex items-center gap-3">
+            class="sticky top-0 z-10 bg-[#0f0f13]/90 backdrop-blur-sm border-b border-white/5 px-4 py-3 flex items-center gap-3">
             <van-icon name="arrow-left" size="20" @click="$router.back()"
                 class="cursor-pointer opacity-60 hover:opacity-100 transition-opacity" />
             <div>
@@ -97,11 +97,11 @@
             <!-- Actions -->
             <div class="pt-2 space-y-3">
                 <van-button v-if="job.status === 'failed'" block round type="danger"
-                    class="!bg-rose-500/20 !border-rose-500/30 !text-rose-400" @click="handleRetry">
+                    class="bg-rose-500/20! border-rose-500/30! text-rose-400!" @click="handleRetry">
                     重新嘗試
                 </van-button>
 
-                <van-button block round plain class="!border-white/10 !text-white/40 !bg-transparent"
+                <van-button block round plain class="border-white/10! text-white/40! bg-transparent!"
                     @click="navigateTo(localePath('/records'))">
                     返回紀錄列表
                 </van-button>

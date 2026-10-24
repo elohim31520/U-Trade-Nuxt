@@ -1,7 +1,7 @@
 <template>
     <article
-        class="news-card group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 transition-transform duration-150 active:scale-[0.98]">
-        <div class="h-1 w-full bg-gradient-to-r from-pink-500 via-orange-400 to-[#F88379]" />
+        class="news-card group relative bg-white rounded-2xl overflow-hidden shadow-xs border border-slate-100 transition-transform duration-150 active:scale-[0.98]">
+        <div class="h-1 w-full bg-linear-to-r from-pink-500 via-orange-400 to-[#F88379]" />
         <div class="p-4">
             <!-- 標籤 + 時間 -->
             <div class="flex items-center justify-between mb-3">
@@ -32,7 +32,7 @@
 
         <!-- 置頂 badge -->
         <div v-if="item.isTop"
-            class="absolute top-3 right-3 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+            class="absolute top-3 right-3 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
             Top
         </div>
     </article>

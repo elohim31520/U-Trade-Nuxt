@@ -3,7 +3,7 @@
         <!-- Header -->
         <div
             class="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-slate-100 px-4 py-3 flex items-center gap-3">
-            <div class="w-1 h-6 rounded-full bg-gradient-to-b from-pink-500 to-[#F88379]" />
+            <div class="w-1 h-6 rounded-full bg-linear-to-b from-pink-500 to-[#F88379]" />
             <h1 class="text-lg font-bold text-slate-800 tracking-tight flex-1">{{ t('news.title') }}</h1>
             <van-icon name="search" size="20" class="text-slate-500 cursor-pointer" @click="isSearching = true" />
         </div>

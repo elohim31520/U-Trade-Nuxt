@@ -49,7 +49,7 @@
             </header>
 
             <!-- Divider -->
-            <div class="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent mb-8" />
+            <div class="h-px bg-linear-to-r from-transparent via-primary/40 to-transparent mb-8" />
 
             <!-- Highlights -->
             <section class="mb-8">
@@ -60,7 +60,7 @@
                     <div v-for="(item, i) in summary.highlights" :key="i"
                         class="flex gap-3 items-start p-3 rounded-xl bg-gray-50 border border-gray-100 hover:border-primary/30 transition-colors duration-300">
                         <span
-                            class="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">
+                            class="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">
                             {{ Number(i) + 1 }}
                         </span>
                         <p class="text-sm text-gray-600 leading-relaxed">{{ item }}</p>
@@ -76,7 +76,7 @@
                 <div class="relative p-4 rounded-2xl bg-gray-50 border border-gray-100">
                     <!-- Accent line -->
                     <div
-                        class="absolute left-0 top-4 bottom-4 w-[3px] bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full" />
+                        class="absolute left-0 top-4 bottom-4 w-[3px] bg-linear-to-b from-primary via-primary/50 to-transparent rounded-full" />
                     <p class="pl-4 text-sm text-gray-600 leading-7">{{ summary.summary }}</p>
                 </div>
             </section>
@@ -91,7 +91,7 @@
                         class="flex items-center gap-4 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:bg-gray-100 transition-colors duration-200">
                         <!-- Sector change badge -->
                         <div :class="[
-                            'flex-shrink-0 w-16 text-center py-1.5 rounded-lg text-sm font-bold tabular-nums',
+                            'shrink-0 w-16 text-center py-1.5 rounded-lg text-sm font-bold tabular-nums',
                             sector.change.startsWith('+')
                                 ? 'bg-emerald-50 text-emerald-600'
                                 : 'bg-red-50 text-red-600'

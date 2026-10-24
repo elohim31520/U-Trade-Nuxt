@@ -3,7 +3,7 @@
 
 		<!-- 表單卡片 -->
 		<van-form ref="formRef" @submit="onSubmit">
-			<van-cell-group inset class="!rounded-2xl overflow-hidden !shadow-card-primary">
+			<van-cell-group inset class="rounded-2xl! overflow-hidden shadow-card-primary!">
 
 				<van-field v-model="form.stockSymbol" name="stockSymbol" :label="$t('transaction.stock_id')"
 					:placeholder="$t('transaction.enter_stock_id')"
@@ -54,7 +54,7 @@
 		</van-form>
 
 		<!-- 提示訊息 -->
-		<van-notice-bar wrapable :scrollable="false" type="warning" class="!rounded-xl">
+		<van-notice-bar wrapable :scrollable="false" type="warning" class="rounded-xl!">
 			{{ $t('transaction.img_upload_tips') }}
 		</van-notice-bar>
 

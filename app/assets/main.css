@@ -1,48 +1,81 @@
-/* color palette from <https://github.com/vuejs/theme> */
-:root {
-	*,
-	*::before,
-	*::after {
-		box-sizing: border-box;
-		margin: 0;
-		font-weight: normal;
-	}
+/* 只掃描 app/ 底下的檔案，不去掃 blogs、server 等目錄 */
+@import 'tailwindcss' source('../');
 
-	body {
-		min-height: 100vh;
-		color: var(--color-text);
-		background: var(--color-background);
-		transition: color 0.5s, background-color 0.5s;
-		line-height: 1.6;
-		font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
-			'Droid Sans', 'Helvetica Neue', sans-serif;
-		font-size: 15px;
-		text-rendering: optimizeLegibility;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
+@theme {
+	/* 自定義 breakpoint：pc:xxx */
+	--breakpoint-pc: 480px;
+
+	--color-primary: #f88379;
+	--color-primary-600: #f4584b;
+
+	/* max-w-480px */
+	--container-480px: 480px;
+
+	/* shadow-card-primary */
+	--shadow-card-primary: 0 0 1rem 0 #0000001a;
+
+	/* animate-gray (骨架屏) */
+	--animate-gray: gray 1s ease-in-out infinite alternate forwards;
+	@keyframes gray {
+		0% {
+			background-color: #e5e7eb;
+		}
+		100% {
+			background-color: #f3f4f6;
+		}
 	}
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* color palette from <https://github.com/vuejs/theme> */
+/* 放進 @layer base，否則未分層的樣式會蓋過所有 Tailwind utilities (m-*、font-bold ...) */
+@layer base {
+	:root {
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+			margin: 0;
+			font-weight: normal;
+		}
 
-@layer components {
-	/* 定義您想要的 flex-y-center Class */
-	.flex-y-center {
-		/* @apply 是關鍵，它將多個 Tailwind Class 組合起來 */
-		@apply flex items-center;
+		body {
+			min-height: 100vh;
+			color: var(--color-text);
+			background: var(--color-background);
+			transition: color 0.5s, background-color 0.5s;
+			line-height: 1.6;
+			font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+				'Droid Sans', 'Helvetica Neue', sans-serif;
+			font-size: 15px;
+			text-rendering: optimizeLegibility;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
 	}
-	.flex-center {
-		@apply flex items-center justify-center;
-	}
-	.shadow-card-primary {
-		@apply shadow-[0_0_1rem_0_#0000001A];
-	}
-	.flex-x-center {
-		@apply flex justify-center;
-	}
-	.w-full-limited {
-		@apply w-full max-w-480px;
-	}
+}
+
+@utility flex-y-center {
+	@apply flex items-center;
+}
+
+@utility flex-center {
+	@apply flex items-center justify-center;
+}
+
+@utility flex-x-center {
+	@apply flex justify-center;
+}
+
+@utility w-full-limited {
+	@apply w-full max-w-480px;
+}
+
+@utility truncate-lines-3 {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+	word-break: break-all;
 }

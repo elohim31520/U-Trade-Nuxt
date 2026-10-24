@@ -15,7 +15,7 @@
 
 		<div class="grid grid-cols-4 gap-x-3 gap-y-4">
 			<NuxtLink v-for="company in companies" :key="company.id" :to="localePath(`/company-metrics/${company.id}`)"
-				class="group flex min-w-0 flex-col items-center outline-none">
+				class="group flex min-w-0 flex-col items-center outline-hidden">
 				<span
 					class="logo-tile relative block aspect-square w-full overflow-hidden rounded-[22%] bg-white transition duration-300 ease-out group-hover:-translate-y-1 group-active:scale-95 group-focus-visible:ring-2 group-focus-visible:ring-primary">
 					<img :src="company.useLogoPath ? `/logo/${company.id}.svg` : `/hot/${company.id}.webp`"

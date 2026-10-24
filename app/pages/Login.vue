@@ -24,7 +24,7 @@
 							{{ $t('register.email') }}
 						</label>
 						<van-field v-model="email" name="email" type="email"
-							class="!rounded-xl !bg-gray-50 !border !border-gray-200 focus-within:!border-primary focus-within:!bg-white focus-within:!shadow-[0_0_0_3px_rgba(248,131,121,0.12)]"
+							class="rounded-xl! bg-gray-50! border! border-gray-200! focus-within:border-primary! focus-within:bg-white! focus-within:shadow-[0_0_0_3px_rgba(248,131,121,0.12)]!"
 							:placeholder="$t('register.enter_email')" :rules="[
 								{ required: true, message: $t('register.enter_email') },
 								{ pattern: /.+@.+\..+/, message: $t('login.invalid_email_format') }
@@ -37,7 +37,7 @@
 							{{ $t('login.password') }}
 						</label>
 						<van-field v-model="password" type="password" name="password"
-							class="!rounded-xl !bg-gray-50 !border !border-gray-200 focus-within:!border-primary focus-within:!bg-white focus-within:!shadow-[0_0_0_3px_rgba(248,131,121,0.12)]"
+							class="rounded-xl! bg-gray-50! border! border-gray-200! focus-within:border-primary! focus-within:bg-white! focus-within:shadow-[0_0_0_3px_rgba(248,131,121,0.12)]!"
 							:placeholder="$t('login.enter_password')"
 							:rules="[{ required: true, message: $t('login.please_fill_password') }]" />
 					</div>
@@ -56,7 +56,7 @@
 
 					<!-- Submit -->
 					<van-button round block native-type="submit" color="#F88379"
-						class="!h-11 !text-base !font-semibold !rounded-xl">
+						class="h-11! text-base! font-semibold! rounded-xl!">
 						{{ $t('login.login') }}
 					</van-button>
 
