@@ -12,7 +12,7 @@
 			<li v-for="(post, index) in fetchedPost" :key="post.id" class="opacity-0 post-item"
 				:style="{ animationDelay: `${index * 0.08}s` }">
 				<NuxtLink :to="localePath(`/post/${post.id}`)"
-					class="block rounded-2xl overflow-hidden no-underline shadow-card-primary transition-transform duration-300 bg-white active:scale-[0.985] post-card">
+					class="block rounded-2xl overflow-hidden no-underline shadow-card-primary transition-transform duration-300 bg-surface-card active:scale-[0.985] post-card">
 					<!-- 圖片區塊 -->
 					<div class="relative w-full overflow-hidden" style="aspect-ratio: 16/9">
 						<img :src="post.image" :alt="post.title"

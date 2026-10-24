@@ -1,5 +1,5 @@
 <template>
-    <article class="news-card relative rounded-2xl border border-slate-100 bg-white px-4 py-3.5"
+    <article class="news-card relative rounded-2xl border border-slate-100 bg-surface-card px-4 py-3.5"
         :class="{ 'news-card--top': item.isTop }">
         <!-- 置頂 -->
         <span v-if="item.isTop"
@@ -44,6 +44,6 @@ const content = computed(() => (isZh.value || !props.item.contentEn ? props.item
 /* Vant 預設的藍色「展開」改成品牌色，行高放鬆一點 */
 .news-text {
     --van-text-ellipsis-line-height: 1.75;
-    --van-text-ellipsis-action-color: #f4584b;
+    --van-text-ellipsis-action-color: var(--color-primary-600);
 }
 </style>

@@ -1,11 +1,12 @@
 <template>
 	<header
-		:class="['w-full max-w-[480px] flex-y-center bg-white shadow-card-primary fixed top-0 left-1/2 -translate-x-1/2 z-50 transition-all duration-300', isScrolled ? 'h-12' : 'h-15']">
-		<div class="bg-no-repeat bg-center bg-contain scale-up transition-all duration-300 cursor-pointer" :style="{
-			backgroundImage: 'url(/logo.webp)',
-			height: isScrolled ? '2.5rem' : '3.75rem',
-			width: isScrolled ? '5rem' : '7rem'
-		}" @click="navigateTo(localePath('/'))"></div>
+		:class="['w-full max-w-[480px] flex-y-center bg-surface-card shadow-card-primary fixed top-0 left-1/2 -translate-x-1/2 z-50 transition-all duration-300', isScrolled ? 'h-12' : 'h-15']">
+		<div class="app-logo bg-no-repeat bg-center bg-contain scale-up transition-all duration-300 cursor-pointer"
+			:style="{
+				backgroundImage: 'url(/logo.webp)',
+				height: isScrolled ? '2.5rem' : '3.75rem',
+				width: isScrolled ? '5rem' : '7rem'
+			}" @click="navigateTo(localePath('/'))"></div>
 		<div @click.prevent="uiStore.showMenu" class="p-2 ml-auto mr-2.5">
 			<SvgIcon name="icon_button_Menu" :size="isScrolled ? '1.5rem' : '2rem'" />
 		</div>

@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-white p-2 shadow-card-primary">
+	<div class="bg-surface-card p-2 shadow-card-primary">
 		<div class="text-lg font-bold mb-4 text-#434343">
 			{{ $t('market_breadth.title') }}
 		</div>
@@ -14,6 +14,7 @@ import { formatNumber } from '~/utils/util'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+const chartColor = useChartColor()
 
 const { $publicKV } = useNuxtApp()
 
@@ -48,7 +49,7 @@ const chartOption = computed(() => {
 				type: 'pie',
 				radius: '50%',
 				center: ['50%', '60%'],
-				color: ['#F88379', '#FDF3F4'],
+				color: [chartColor.value, '#FDF3F4'],
 				data: [
 					{
 						value: formatNumber(marketBreadth.value),

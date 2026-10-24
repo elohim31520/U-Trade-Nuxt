@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-white text-gray-900 font-mono">
+    <div class="min-h-screen bg-surface-card text-gray-900 font-mono">
         <!-- Header Bar -->
         <div class="border-b border-gray-200 px-6 py-4">
             <div class="max-w-7xl mx-auto flex items-center justify-between">

@@ -1,6 +1,6 @@
 <template>
 	<div class="bg-gray-50">
-		<div class="mx-2 bg-white p-2 rounded-2xl shadow-lg">
+		<div class="mx-2 bg-surface-card p-2 rounded-2xl shadow-lg">
 			<h1 class="text-[24px] font-bold mb-2 text-gray-800">{{ $t('records.transaction_records') }}</h1>
 			<Waterfall ref="waterfallRef" dataPath="data.data" :apiFunction="fetchTrades">
 				<template #default="{ list }">
@@ -36,7 +36,7 @@
 							</div>
 						</div>
 						<template #left>
-							<div class="h-full flex items-center justify-center bg-primary text-white w-65px">
+							<div class="h-full flex items-center justify-center bg-primary text-on-primary w-65px">
 								{{ $t('records.update') }}
 							</div>
 						</template>

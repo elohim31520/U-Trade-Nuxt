@@ -110,7 +110,9 @@
 		"todays_volatility": "Today's Volatility",
 		"login": "Login",
 		"register": "Register",
-		"logout": "Logout"
+		"logout": "Logout",
+		"theme": "Theme",
+		"theme_default": "Light"
 	},
 	"footer": {
 		"home": "Home",

@@ -9,7 +9,7 @@
 
 		<ul class="flex flex-col gap-2">
 			<li v-for="(item, index) in fetchedData" :key="index"
-				class="flex items-center gap-3 px-4 py-3.5 bg-white border border-gray-100 rounded-xl cursor-pointer active:scale-[0.99] transition-all hover:border-gray-200 hover:bg-gray-50"
+				class="flex items-center gap-3 px-4 py-3.5 bg-surface-card border border-gray-100 rounded-xl cursor-pointer active:scale-[0.99] transition-all hover:border-gray-200 hover:bg-gray-50"
 				@click="navigateTo(localePath(`/asset-price-chart/${item.symbol.toLowerCase()}`))">
 				<!-- 縮寫 icon -->
 				<div

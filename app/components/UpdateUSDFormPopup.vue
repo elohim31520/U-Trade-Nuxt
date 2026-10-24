@@ -20,7 +20,7 @@
 						]" />
 				</van-cell-group>
 				<div class="px-2 py-5">
-					<van-button round block type="primary" color="#F88379" native-type="submit">
+					<van-button round block type="primary" color="var(--color-primary)" native-type="submit">
 						{{ isUpdateMode ? $t('update_usd_form_popup.update_button') :
 							$t('update_usd_form_popup.add_button') }}
 					</van-button>

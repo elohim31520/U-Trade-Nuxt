@@ -17,7 +17,7 @@
 					:rules="[{ validator: passwordValidator, message: $t('register.password_mismatch') }]" />
 			</van-cell-group>
 			<div style="margin: 16px">
-				<van-button round block type="primary" color="#F88379" native-type="submit">
+				<van-button round block type="primary" color="var(--color-primary)" native-type="submit">
 					{{ $t('register.register') }}
 				</van-button>
 			</div>

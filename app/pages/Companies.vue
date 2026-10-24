@@ -1,7 +1,7 @@
 <template>
-	<div class="bg-white min-h-screen">
+	<div class="bg-surface-card min-h-screen">
 		<!-- Header -->
-		<div class="sticky top-0 z-10 bg-white/90 backdrop-blur-xs border-b border-gray-100 px-4 py-3">
+		<div class="sticky top-0 z-10 bg-surface-card/90 backdrop-blur-xs border-b border-gray-100 px-4 py-3">
 			<h1 class="text-lg font-semibold text-gray-800 tracking-tight">
 				{{ $t('companies.title') }}
 			</h1>
@@ -19,7 +19,7 @@
 				<!-- Company List -->
 				<div class="px-3 pb-2 space-y-1">
 					<div v-for="company in group" :key="company.symbol"
-						class="group flex items-center gap-3 px-3 py-3 rounded-xl bg-white border border-gray-100 active:scale-[0.98] transition-all duration-150 cursor-pointer hover:border-primary/30 hover:shadow-card-primary"
+						class="group flex items-center gap-3 px-3 py-3 rounded-xl bg-surface-card border border-gray-100 active:scale-[0.98] transition-all duration-150 cursor-pointer hover:border-primary/30 hover:shadow-card-primary"
 						@click="handleClick(company.symbol)">
 						<!-- Company Icon -->
 						<div class="shrink-0">

@@ -1,9 +1,9 @@
 <template>
-	<div class="p-1 bg-white rounded-lg shadow-card-primary">
+	<div class="p-1 bg-surface-card rounded-lg shadow-card-primary">
 		<div class="flex justify-center gap-5 my-5">
 			<div v-for="day in timeRanges" :key="day" @click="refreshData(day)" :class="[
 				'px-2 py-2 rounded-md w-auto min-w-[3rem] text-center whitespace-nowrap',
-				selectedDays === day ? 'bg-primary text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300',
+				selectedDays === day ? 'bg-primary text-on-primary' : 'bg-gray-200 text-gray-700 hover:bg-gray-300',
 			]">
 				{{ $t('momentum_chart.days_unit', { count: day }) }}
 			</div>
@@ -32,6 +32,7 @@ import { useI18n } from 'vue-i18n'
 import { useUserStore } from '@/stores/user'
 
 const { t } = useI18n()
+const chartColor = useChartColor()
 const localePath = useLocalePath()
 const userStore = useUserStore()
 const { $publicKV, $bffApi } = useNuxtApp()
@@ -84,7 +85,7 @@ const option = computed(() => {
 				data: volumes,
 				type: 'bar',
 				itemStyle: {
-					color: '#F88379',
+					color: chartColor.value,
 				},
 				animationDelay: (idx: number) => idx * baseDelay,
 				animationDelayUpdate: (idx: number) => idx * baseDelay,

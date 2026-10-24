@@ -1,7 +1,7 @@
 <template>
 	<div class="min-h-screen bg-gray-50">
 		<!-- 過濾工具列 -->
-		<div class="sticky top-0 z-10 bg-white/90 backdrop-blur-xs border-b border-gray-100 px-3 py-2.5">
+		<div class="sticky top-0 z-10 bg-surface-card/90 backdrop-blur-xs border-b border-gray-100 px-3 py-2.5">
 			<van-row gutter="8">
 				<van-col span="8">
 					<van-button size="small" block hairline round class="text-xs! font-semibold!" @click="toggleSort">
@@ -28,7 +28,7 @@
 		<!-- 股票列表 -->
 		<ul class="px-3 pt-3 pb-24 space-y-1.5">
 			<li v-for="(stock, index) in displayedData" :key="index"
-				class="group flex items-center gap-3 px-3 py-3 rounded-xl bg-white border border-gray-100 cursor-pointer active:scale-[0.98] transition-all duration-150 hover:border-gray-200 hover:shadow-card-primary"
+				class="group flex items-center gap-3 px-3 py-3 rounded-xl bg-surface-card border border-gray-100 cursor-pointer active:scale-[0.98] transition-all duration-150 hover:border-gray-200 hover:shadow-card-primary"
 				@click="handleRoute(stock)">
 				<div class="shrink-0">
 					<CompanyIcon :symbol="stock.symbol || ''" />

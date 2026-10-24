@@ -50,7 +50,7 @@
 				<div class="transition-all duration-300 ease-in-out"
 					:class="isScrolled ? '-mt-[2rem]' : '-mt-[6.25rem]'">
 					<!-- Wallet Info -->
-					<div class="flex-y-center justify-between transition-all duration-300 ease-in-out bg-white"
+					<div class="flex-y-center justify-between transition-all duration-300 ease-in-out bg-surface-card"
 						:class="isScrolled ? 'rounded-t-[1.25rem] p-1' : 'rounded-full px-1 mx-1 py-1'">
 						<div class="flex-y-center font-bold">
 							<SvgIcon class="text-primary" name="icon_dollar_fill" size="1.6rem" />
@@ -85,7 +85,7 @@
 			</div>
 
 			<ClientOnly>
-				<div class="bg-white" :style="{ paddingTop: isScrolled ? headerHeight + 'px' : '0px' }">
+				<div class="bg-surface-card" :style="{ paddingTop: isScrolled ? headerHeight + 'px' : '0px' }">
 					<!-- My Portfolio -->
 					<div class="m-2 pt-5">
 						<h3 class="font-[500] mb-1 text-primary" v-if="userStore.isLogin">{{ $t('my.my_portfolio') }}

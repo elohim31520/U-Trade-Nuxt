@@ -10,12 +10,12 @@
 		<div class="flex gap-2 mb-4">
 			<button class="flex-1 py-2 text-sm font-[500] border rounded-lg transition-all" :class="activeTab === 0
 				? 'bg-[#EAF3DE] border-[#97C459] text-[#3B6D11]'
-				: 'bg-white border-gray-100 text-gray-400'" @click="activeTab = 0">
+				: 'bg-surface-card border-gray-100 text-gray-400'" @click="activeTab = 0">
 				{{ $t('volatile_asset.strong_stocks') }}
 			</button>
 			<button class="flex-1 py-2 text-sm font-[500] border rounded-lg transition-all" :class="activeTab === 1
 				? 'bg-[#FAECE7] border-[#F0997B] text-[#993C1D]'
-				: 'bg-white border-gray-100 text-gray-400'" @click="activeTab = 1">
+				: 'bg-surface-card border-gray-100 text-gray-400'" @click="activeTab = 1">
 				{{ $t('volatile_asset.weak_stocks') }}
 			</button>
 		</div>
@@ -23,7 +23,7 @@
 		<!-- 列表 -->
 		<ul class="flex flex-col gap-2">
 			<li v-for="(stock, index) in activeTab === 0 ? winners : losers" :key="index"
-				class="flex items-center gap-3 px-4 py-3.5 bg-white border border-gray-100 rounded-xl cursor-pointer active:scale-[0.99] transition-all hover:border-gray-200 hover:bg-gray-50"
+				class="flex items-center gap-3 px-4 py-3.5 bg-surface-card border border-gray-100 rounded-xl cursor-pointer active:scale-[0.99] transition-all hover:border-gray-200 hover:bg-gray-50"
 				@click="handleRoute(stock)">
 				<!-- 排名 -->
 				<!-- <span class="w-5 text-[12px] text-gray-300 tabular-nums text-center shrink-0">

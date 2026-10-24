@@ -28,18 +28,23 @@
 				<div class="flex rounded-lg overflow-hidden border border-gray-200">
 					<NuxtLink :to="switchLocalePath('zh')" class="flex-1 py-2 text-center text-sm transition-colors"
 						:class="locale === 'zh'
-							? 'bg-primary text-white font-semibold'
-							: 'bg-white text-gray-500 hover:bg-gray-50'" @click="closeMenu">
+							? 'bg-primary text-on-primary font-semibold'
+							: 'bg-surface-card text-gray-500 hover:bg-gray-50'" @click="closeMenu">
 						中文
 					</NuxtLink>
 					<div class="w-px bg-gray-200" />
 					<NuxtLink :to="switchLocalePath('en')" class="flex-1 py-2 text-center text-sm transition-colors"
 						:class="locale === 'en'
-							? 'bg-primary text-white font-semibold'
-							: 'bg-white text-gray-500 hover:bg-gray-50'" @click="closeMenu">
+							? 'bg-primary text-on-primary font-semibold'
+							: 'bg-surface-card text-gray-500 hover:bg-gray-50'" @click="closeMenu">
 						English
 					</NuxtLink>
 				</div>
+			</div>
+
+			<!-- 主題切換 -->
+			<div class="mt-3 px-4">
+				<ThemeSelector />
 			</div>
 
 		</div>

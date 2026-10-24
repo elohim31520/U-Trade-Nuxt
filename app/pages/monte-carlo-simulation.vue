@@ -22,10 +22,10 @@
 
 				<div class="slider-wrapper">
 					<van-slider v-model="params.sigma" :min="0.01" :max="1.0" :step="0.01" bar-height="4px"
-						active-color="#F88379" @change="runSimulation" />
+						active-color="var(--color-primary)" @change="runSimulation" />
 				</div>
 			</div>
-			<van-button type="primary" @click="runSimulation" :disabled="isCalculating" color="#F88379">
+			<van-button type="primary" @click="runSimulation" :disabled="isCalculating" color="var(--color-primary)">
 				{{ isCalculating ? $t('monte-sim.calculating') : $t('monte-sim.runSimulation') }}
 			</van-button>
 		</div>

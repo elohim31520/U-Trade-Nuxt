@@ -1,6 +1,6 @@
 <template>
 	<div class="flex items-center justify-center bg-gray-50 px-4 py-4">
-		<div class="w-full max-w-480px rounded-2xl overflow-hidden shadow-card-primary bg-white">
+		<div class="w-full max-w-480px rounded-2xl overflow-hidden shadow-card-primary bg-surface-card">
 
 			<!-- Header -->
 			<div class="relative bg-primary pb-10 px-8 pt-8">
@@ -8,10 +8,10 @@
 					class="w-12 h-12 rounded-full bg-white/25 border border-white/50 flex items-center justify-content mb-4">
 					<van-icon name="manager-o" size="24" color="#fff" class="m-auto" />
 				</div>
-				<h1 class="text-2xl font-semibold text-white tracking-tight">{{ $t('login.welcome_back') }}</h1>
-				<p class="text-sm text-white/75 mt-1">{{ $t('login.login_to_continue') }}</p>
+				<h1 class="text-2xl font-semibold text-on-primary tracking-tight">{{ $t('login.welcome_back') }}</h1>
+				<p class="text-sm text-on-primary/75 mt-1">{{ $t('login.login_to_continue') }}</p>
 				<!-- 波浪切角 -->
-				<div class="absolute bottom-0 left-0 right-0 h-6 bg-white rounded-t-2xl" />
+				<div class="absolute bottom-0 left-0 right-0 h-6 bg-surface-card rounded-t-2xl" />
 			</div>
 
 			<!-- Body -->
@@ -24,7 +24,7 @@
 							{{ $t('register.email') }}
 						</label>
 						<van-field v-model="email" name="email" type="email"
-							class="rounded-xl! bg-gray-50! border! border-gray-200! focus-within:border-primary! focus-within:bg-white! focus-within:shadow-[0_0_0_3px_rgba(248,131,121,0.12)]!"
+							class="rounded-xl! bg-gray-50! border! border-gray-200! focus-within:border-primary! focus-within:bg-surface-card! focus-within:shadow-[0_0_0_3px_rgba(248,131,121,0.12)]!"
 							:placeholder="$t('register.enter_email')" :rules="[
 								{ required: true, message: $t('register.enter_email') },
 								{ pattern: /.+@.+\..+/, message: $t('login.invalid_email_format') }
@@ -37,7 +37,7 @@
 							{{ $t('login.password') }}
 						</label>
 						<van-field v-model="password" type="password" name="password"
-							class="rounded-xl! bg-gray-50! border! border-gray-200! focus-within:border-primary! focus-within:bg-white! focus-within:shadow-[0_0_0_3px_rgba(248,131,121,0.12)]!"
+							class="rounded-xl! bg-gray-50! border! border-gray-200! focus-within:border-primary! focus-within:bg-surface-card! focus-within:shadow-[0_0_0_3px_rgba(248,131,121,0.12)]!"
 							:placeholder="$t('login.enter_password')"
 							:rules="[{ required: true, message: $t('login.please_fill_password') }]" />
 					</div>
@@ -55,7 +55,7 @@
 					</div>
 
 					<!-- Submit -->
-					<van-button round block native-type="submit" color="#F88379"
+					<van-button round block native-type="submit" color="var(--color-primary)"
 						class="h-11! text-base! font-semibold! rounded-xl!">
 						{{ $t('login.login') }}
 					</van-button>

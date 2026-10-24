@@ -10,7 +10,7 @@
                 <p class="mt-1 text-[13px] text-slate-500">{{ t('news.subtitle') }}</p>
 
                 <button type="button"
-                    class="news-search mt-4 flex h-11 w-full items-center gap-2.5 rounded-full border border-white bg-white/90 px-4 text-left text-sm text-slate-400 transition-colors active:bg-white"
+                    class="news-search mt-4 flex h-11 w-full items-center gap-2.5 rounded-full border border-surface-card bg-surface-card/90 px-4 text-left text-sm text-slate-400 transition-colors active:bg-surface-card"
                     @click="isSearching = true">
                     <van-icon name="search" size="18" />
                     {{ t('news.searchPlaceholder') }}

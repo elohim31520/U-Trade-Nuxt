@@ -1,0 +1,158 @@
+/* 替代主題「arctic-cyan」(冰青)，配色整份移植自參考站
+ * (mootech-asia/cms_system, v3/site/assets/css/skins/curated-collection.css)。
+ * 預設主題（不帶 data-theme）就是 main.css @theme 裡那套淺色配色，本檔只在
+ * <html data-theme="arctic-cyan"> 時生效；切換見 composables/useTheme.ts。
+ *
+ * --c-* 名稱與參考站 1:1 對應（bg -> --c-bg、text-mid -> --c-text-mid ...），
+ * 之後設計稿更新可直接跟原檔 diff。參考站有、但本專案沒有對應元件的 token
+ * （表格表頭、rewards banner、account hero、日曆 icon filter ...）沒有搬。
+ *
+ * 本專案的元件寫的是 Tailwind 色票（bg-gray-*、text-gray-*、bg-primary ...），
+ * 不是語意 token，所以下半段「Tailwind 橋接」把這些色票重新指到上面的 --c-*，
+ * 元件不必逐一改 class 就能跟著換色。有兩個例外需要語意 token：
+ *   bg-white  -> bg-surface-card（white 同時被 text-white / bg-white/10 這種
+ *                「真的白色」使用，不能直接改 --color-white）
+ *   頁面底色  -> bg-surface
+ */
+:root[data-theme='arctic-cyan'] {
+	color-scheme: dark;
+
+	/* Palette */
+	--c-bg: #071116;
+	--c-bg-elev: #0c1a21;
+	--c-bg-card: #12252d;
+	--c-bg-card-hi: #19323b;
+	--c-line: rgba(106, 210, 224, 0.1);
+	--c-line-hi: rgba(106, 210, 224, 0.26);
+	--c-text: #edf9fb;
+	--c-text-mid: rgba(237, 249, 251, 0.72);
+	--c-text-dim: rgba(237, 249, 251, 0.45);
+	--c-text-on-accent: #06181d;
+	--c-text-on-accent-soft: #edfdff;
+	--c-accent: #62c8d8;
+	--c-accent-2: #a3e2ea;
+	--c-accent-3: #55a7bd;
+	--c-accent-ink: #06181d;
+	--c-accent-shade: #02080b;
+	--c-primary-start: #a3e2ea;
+	--c-primary: #62c8d8;
+	--c-primary-end: #368ca3;
+	--c-live: #ff5a67;
+	--c-positive: #65d4a5;
+	--c-negative: #ff6d78;
+	--c-warning: #e6bd61;
+	--c-tier-next: #c89047;
+	--c-icon-muted: rgba(237, 249, 251, 0.7);
+	--c-skin-shadow: rgba(0, 0, 0, 0.34);
+	--c-skin-inset: rgba(255, 255, 255, 0.035);
+
+	/* Derived */
+	--c-gradient-primary: linear-gradient(
+		180deg,
+		var(--c-primary-start) 0%,
+		var(--c-primary) 56%,
+		var(--c-primary-end) 100%
+	);
+	--c-accent-grad: linear-gradient(
+		135deg,
+		var(--c-primary-start) 0%,
+		var(--c-accent) 52%,
+		var(--c-primary-end) 100%
+	);
+	--c-bg-grad-card: linear-gradient(180deg, var(--c-bg-card-hi) 0%, var(--c-bg-card) 100%);
+	--c-shadow-card: 0 1px 0 var(--c-skin-inset) inset, 0 7px 20px var(--c-skin-shadow);
+	--c-focus-ring:
+		0 0 0 2px var(--c-bg), 0 0 0 4px color-mix(in oklch, var(--c-accent) 58%, transparent);
+
+	/* ---- Tailwind 橋接：語意 token（main.css @theme 宣告的那幾個）---- */
+	--color-surface: var(--c-bg);
+	--color-surface-card: var(--c-bg-card);
+	--color-primary: var(--c-primary);
+	/* 淺色主題的 600 是「比 primary 更深」；深色底上要更亮才有對比 */
+	--color-primary-600: var(--c-accent-2);
+	--color-on-primary: var(--c-text-on-accent);
+	--color-accent: var(--c-accent);
+	--color-accent-2: var(--c-accent-2);
+	--shadow-card-primary: var(--c-shadow-card);
+	--shadow-nav-home: 0 6px 16px color-mix(in oklch, var(--c-accent) 45%, transparent);
+	--shadow-nav-active: 0 0 10px color-mix(in oklch, var(--c-accent) 40%, transparent);
+	--skeleton-from: var(--c-bg-card);
+	--skeleton-to: var(--c-bg-card-hi);
+
+	/* ---- Tailwind 橋接：中性色階反相（50 最淺 -> 最貼近底色，900 最深 -> 最亮的文字）---- */
+	--color-gray-50: var(--c-bg-elev);
+	--color-gray-100: var(--c-bg-card-hi);
+	--color-gray-200: var(--c-line-hi);
+	--color-gray-300: color-mix(in oklch, var(--c-text) 30%, var(--c-bg));
+	--color-gray-400: var(--c-text-dim);
+	--color-gray-500: var(--c-text-mid);
+	--color-gray-600: var(--c-text-mid);
+	--color-gray-700: var(--c-text);
+	--color-gray-800: var(--c-text);
+	--color-gray-900: var(--c-text);
+	--color-slate-50: var(--color-gray-50);
+	--color-slate-100: var(--color-gray-100);
+	--color-slate-200: var(--color-gray-200);
+	--color-slate-300: var(--color-gray-300);
+	--color-slate-400: var(--color-gray-400);
+	--color-slate-500: var(--color-gray-500);
+	--color-slate-600: var(--color-gray-600);
+	--color-slate-700: var(--color-gray-700);
+	--color-slate-800: var(--color-gray-800);
+	--color-slate-900: var(--color-gray-900);
+
+	/* ---- Tailwind 橋接：漲跌／狀態色（淺色底的 *-50/-100 色塊在深色底要改成淡色調）---- */
+	--color-red-50: color-mix(in oklch, var(--c-negative) 14%, var(--c-bg-card));
+	--color-red-100: color-mix(in oklch, var(--c-negative) 18%, var(--c-bg-card));
+	--color-red-200: color-mix(in oklch, var(--c-negative) 40%, transparent);
+	--color-red-400: var(--c-negative);
+	--color-red-500: var(--c-negative);
+	--color-red-600: var(--c-negative);
+	--color-red-800: var(--c-negative);
+	--color-emerald-50: color-mix(in oklch, var(--c-positive) 14%, var(--c-bg-card));
+	--color-emerald-500: var(--c-positive);
+	--color-emerald-600: var(--c-positive);
+	--color-green-100: color-mix(in oklch, var(--c-positive) 18%, var(--c-bg-card));
+	--color-green-600: var(--c-positive);
+	--color-green-800: var(--c-positive);
+
+	/* ---- Vant（<van-field>、<van-popup>、<van-cell> ... 讀的是 --van-*）---- */
+	--van-background: var(--c-bg);
+	--van-background-2: var(--c-bg-card);
+	--van-text-color: var(--c-text);
+	--van-text-color-2: var(--c-text-mid);
+	--van-text-color-3: var(--c-text-dim);
+	--van-border-color: var(--c-line-hi);
+	--van-active-color: var(--c-bg-card-hi);
+	--van-primary-color: var(--c-primary);
+	--van-gray-1: var(--c-bg-elev);
+	--van-gray-2: var(--c-bg-card);
+	--van-gray-3: var(--c-bg-card-hi);
+	--van-gray-4: var(--c-line-hi);
+	--van-gray-5: var(--c-text-dim);
+	--van-gray-6: var(--c-text-mid);
+	--van-gray-7: var(--c-text-mid);
+	--van-gray-8: var(--c-text);
+}
+
+:root[data-theme='arctic-cyan'] body {
+	background: var(--c-bg);
+	color: var(--c-text);
+}
+
+/* icons/svg 裡的中性灰 icon 把 #434343 / #5D5D5D / #656565 寫死在檔案裡，深色底上幾乎看不見。
+ * 選擇器要對到 <symbol> 裡的原始節點（<use> 複製出來的節點沿用原節點命中的規則），
+ * 不能寫成 .svg-icon [stroke=...]。 */
+:root[data-theme='arctic-cyan'] symbol :is([stroke='#434343'], [stroke='#5D5D5D'], [stroke='#656565']) {
+	stroke: var(--c-icon-muted);
+}
+:root[data-theme='arctic-cyan'] symbol :is([fill='#434343'], [fill='#5D5D5D'], [fill='#656565']) {
+	fill: var(--c-icon-muted);
+}
+
+/* /logo.webp 是白底不透明的點陣圖，沒有深色版。反相後白底變黑、再用 screen 讓黑色透出 header 底色；
+ * hue-rotate(180deg) 把反相轉掉的色相轉回來（粉紅字還是粉紅）。 */
+:root[data-theme='arctic-cyan'] .app-logo {
+	filter: invert(1) hue-rotate(180deg);
+	mix-blend-mode: screen;
+}

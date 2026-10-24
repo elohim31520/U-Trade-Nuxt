@@ -6,9 +6,9 @@
 		</header>
 
 		<nav
-			class="no-scrollbar sticky top-12 z-40 -mx-4 flex gap-2 overflow-x-auto bg-gray-100/90 px-4 py-2 backdrop-blur-sm">
+			class="no-scrollbar sticky top-12 z-40 -mx-4 flex gap-2 overflow-x-auto bg-surface/90 px-4 py-2 backdrop-blur-sm">
 			<button v-for="symbol in allSymbols" :key="symbol" type="button"
-				class="flex-y-center shrink-0 gap-1.5 rounded-full border border-gray-100 bg-white py-1 pl-1.5 pr-3 text-[13px] font-[500] transition active:scale-95"
+				class="flex-y-center shrink-0 gap-1.5 rounded-full border border-gray-100 bg-surface-card py-1 pl-1.5 pr-3 text-[13px] font-[500] transition active:scale-95"
 				@click="scrollToCard(symbol)">
 				<img :src="STOCKS[symbol].logo" alt="" class="h-5 w-5 rounded-full object-cover" />
 				{{ symbol }}
@@ -16,7 +16,7 @@
 		</nav>
 
 		<section v-for="symbol in allSymbols" :id="`m7-${symbol}`" :key="symbol" :ref="(el) => setChartRef(el, symbol)"
-			class="shadow-card-primary scroll-mt-28 overflow-hidden rounded-2xl border border-gray-100 bg-white">
+			class="shadow-card-primary scroll-mt-28 overflow-hidden rounded-2xl border border-gray-100 bg-surface-card">
 			<div class="flex-y-center gap-3 px-4 pt-4">
 				<img :src="STOCKS[symbol].logo" :alt="`${symbol} logo`"
 					class="h-10 w-10 shrink-0 rounded-xl border border-gray-100 object-cover" />
@@ -51,7 +51,7 @@
 			</div>
 		</section>
 
-		<div class="shadow-card-primary rounded-2xl border border-gray-100 bg-white px-4 py-5">
+		<div class="shadow-card-primary rounded-2xl border border-gray-100 bg-surface-card px-4 py-5">
 			<HotCompanies />
 		</div>
 	</div>

@@ -17,7 +17,7 @@
 					]" />
 			</van-cell-group>
 			<div style="margin: 16px">
-				<van-button round block type="primary" color="#F88379" native-type="submit">
+				<van-button round block type="primary" color="var(--color-primary)" native-type="submit">
 					{{ $t('change_password.confirm_change') }}
 				</van-button>
 			</div>

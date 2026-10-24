@@ -12,10 +12,10 @@
 				<van-field name="tradeType" :label="$t('transaction.transaction_type')">
 					<template #input>
 						<van-radio-group v-model="form.tradeType" direction="horizontal">
-							<van-radio name="buy" checked-color="#F88379">
+							<van-radio name="buy" checked-color="var(--color-primary)">
 								<span class="text-emerald-600 font-semibold text-sm">{{ $t('transaction.buy') }}</span>
 							</van-radio>
-							<van-radio name="sell" checked-color="#F88379">
+							<van-radio name="sell" checked-color="var(--color-primary)">
 								<span class="text-red-500 font-semibold text-sm">{{ $t('transaction.sell') }}</span>
 							</van-radio>
 						</van-radio-group>
@@ -47,7 +47,7 @@
 
 			<!-- 提交按鈕 -->
 			<div class="px-1 pt-5">
-				<van-button round block native-type="submit" color="#F88379">
+				<van-button round block native-type="submit" color="var(--color-primary)">
 					<span class="font-semibold tracking-wide">{{ $t('transaction.record') }}</span>
 				</van-button>
 			</div>
@@ -64,9 +64,9 @@
 			<!-- 上傳 icon -->
 			<div class="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center">
 				<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-					<path d="M10 13V4M10 4L6.5 7.5M10 4l3.5 3.5" stroke="#F88379" stroke-width="1.6"
+					<path d="M10 13V4M10 4L6.5 7.5M10 4l3.5 3.5" stroke="var(--color-primary)" stroke-width="1.6"
 						stroke-linecap="round" stroke-linejoin="round" />
-					<path d="M3 14v1.5A1.5 1.5 0 004.5 17h11a1.5 1.5 0 001.5-1.5V14" stroke="#F88379" stroke-width="1.6"
+					<path d="M3 14v1.5A1.5 1.5 0 004.5 17h11a1.5 1.5 0 001.5-1.5V14" stroke="var(--color-primary)" stroke-width="1.6"
 						stroke-linecap="round" />
 				</svg>
 			</div>

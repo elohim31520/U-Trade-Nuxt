@@ -1,5 +1,5 @@
 <template>
-	<div class="min-h-screen flex flex-col max-w-[480px] mx-auto bg-gray-100 pb-[6rem]">
+	<div class="min-h-screen flex flex-col max-w-[480px] mx-auto bg-surface pb-[6rem]">
 		<AppHeader v-if="showHeader" />
 
 		<SideMenu />
@@ -24,6 +24,8 @@ usePageSeo(computed(() => ({
 	title: t('meta.default_title'),
 	description: t('meta.default_description'),
 })))
+
+useHead({ script: [{ innerHTML: themeInitScript, tagPosition: 'head' }] })
 
 const showHeader = computed(() => {
 	if (['/my', '/my/'].includes(route.path)) return false

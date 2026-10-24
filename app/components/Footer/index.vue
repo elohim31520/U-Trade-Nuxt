@@ -4,7 +4,8 @@
 		<!-- 中間往下凹的底板：圖形用 preserveAspectRatio="none" 跟著 nav 寬高縮放 -->
 		<svg class="pointer-events-none absolute inset-0 -z-10 h-full w-full" viewBox="0 0 390 64"
 			preserveAspectRatio="none" aria-hidden="true" focusable="false">
-			<path class="fill-white" d="M0,0 L151,0 C176,0 183,30 195,30 C207,30 214,0 239,0 L390,0 L390,64 L0,64 Z" />
+			<path class="fill-surface-card"
+				d="M0,0 L151,0 C176,0 183,30 195,30 C207,30 214,0 239,0 L390,0 L390,64 L0,64 Z" />
 			<path class="fill-none stroke-1 stroke-gray-200" vector-effect="non-scaling-stroke"
 				d="M0,0 L151,0 C176,0 183,30 195,30 C207,30 214,0 239,0 L390,0" />
 		</svg>
@@ -17,7 +18,7 @@
 			<span v-if="isActive(item) && !item.center"
 				class="absolute inset-x-1/5 top-0 h-0.5 rounded-full bg-linear-to-r from-accent to-accent-2 shadow-nav-active" />
 			<span v-if="item.center"
-				class="grid h-11.5 w-11.5 place-items-center rounded-full border-3 border-white bg-linear-to-br from-accent to-accent-2 text-white shadow-nav-home">
+				class="grid h-11.5 w-11.5 place-items-center rounded-full border-3 border-surface-card bg-linear-to-br from-accent to-accent-2 text-on-primary shadow-nav-home">
 				<SvgIcon size="1.375rem" :name="item.icon" />
 			</span>
 			<SvgIcon v-else size="1.375rem" :name="item.icon" />

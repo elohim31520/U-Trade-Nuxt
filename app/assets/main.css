@@ -1,5 +1,7 @@
 /* 只掃描 app/ 底下的檔案，不去掃 blogs、server 等目錄 */
 @import 'tailwindcss' source('../');
+/* 替代主題。只在 <html data-theme="..."> 時生效，預設主題不受影響 */
+@import './themes/arctic-cyan.css';
 
 @theme {
 	/* 自定義 breakpoint：pc:xxx */
@@ -7,6 +9,13 @@
 
 	--color-primary: #f88379;
 	--color-primary-600: #f4584b;
+	/* 蓋在 primary / accent 底色上的文字色（text-on-primary） */
+	--color-on-primary: #fff;
+
+	/* 頁面底色（bg-surface）／卡片與浮層底色（bg-surface-card）。預設值 = 原本的 gray-100 / white；
+	   不直接用 gray-100 / white 是因為 data-theme 要能單獨改這兩層，見 themes/arctic-cyan.css */
+	--color-surface: #f3f4f6;
+	--color-surface-card: #fff;
 
 	/* 底部導覽的漸層與 active 色（bg-linear-to-r from-accent to-accent-2 / text-accent-2） */
 	--color-accent: #ec09f8;
@@ -26,10 +35,10 @@
 	--animate-gray: gray 1s ease-in-out infinite alternate forwards;
 	@keyframes gray {
 		0% {
-			background-color: #e5e7eb;
+			background-color: var(--skeleton-from, #e5e7eb);
 		}
 		100% {
-			background-color: #f3f4f6;
+			background-color: var(--skeleton-to, #f3f4f6);
 		}
 	}
 }

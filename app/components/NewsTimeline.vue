@@ -8,7 +8,7 @@
 
 			<header v-if="group.label" class="relative mb-3 flex h-8 items-center">
 				<span aria-hidden="true"
-					class="absolute -left-7 size-3 rounded-full border-[2.5px] border-primary-600 bg-white shadow-[0_0_0_4px_rgb(248_131_121/0.18)]" />
+					class="absolute -left-7 size-3 rounded-full border-[2.5px] border-primary-600 bg-surface-card shadow-[0_0_0_4px_rgb(248_131_121/0.18)]" />
 				<time :datetime="group.day" class="flex items-center gap-2.5">
 					<span class="text-[28px] font-bold leading-none tracking-tight tabular-nums text-slate-800">
 						{{ group.label.day }}

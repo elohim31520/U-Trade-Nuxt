@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-white text-gray-900">
+    <div class="min-h-screen bg-surface-card text-gray-900">
         <!-- Background grid pattern -->
         <div class="fixed inset-0 opacity-[0.04] pointer-events-none"
             style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 40px 40px;">

@@ -5,7 +5,8 @@
 			<p class="mt-1 text-xs text-gray-400">{{ $t('news.subtitle') }}</p>
 		</header>
 
-		<ol class="news-card divide-y divide-gray-100 overflow-hidden rounded-2xl border border-gray-100 bg-white">
+		<ol
+			class="news-card divide-y divide-gray-100 overflow-hidden rounded-2xl border border-gray-100 bg-surface-card">
 			<li v-for="vo in items" :key="vo.id">
 				<!-- 同一天只在第一則前標一次日期 -->
 				<time v-if="vo.showDay" :datetime="vo.day"
@@ -80,6 +81,6 @@ const items = computed(() => {
 /* Vant 預設的藍色「展開」改成品牌色，行高放鬆一點 */
 .news-text {
 	--van-text-ellipsis-line-height: 1.7;
-	--van-text-ellipsis-action-color: #f4584b;
+	--van-text-ellipsis-action-color: var(--color-primary-600);
 }
 </style>
