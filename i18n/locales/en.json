@@ -49,7 +49,9 @@
 		"google_login_fail": "Google login failed",
 		"invalid_email_format": "Invalid email format",
 		"welcome_back": "Welcome Back",
-		"login_to_continue": "Login To Continue"
+		"login_to_continue": "Login To Continue",
+		"login_fail": "Login failed",
+		"no_account": "Don't have an account?"
 	},
 	"companies": {
 		"title": "Companies",
@@ -196,7 +198,9 @@
 		"enter_confirm_password": "Please enter your password again",
 		"password_mismatch": "The two passwords do not match",
 		"register": "Register",
-		"register_success": "Registration successful"
+		"register_success": "Registration successful",
+		"register_fail": "Registration failed",
+		"has_account": "Already have an account?"
 	},
 	"avatar_generator": {
 		"title": "Cartoon Avatar Generator",
@@ -330,7 +334,8 @@
 		"cancel": "Cancel",
 		"confirm": "Confirm",
 		"back": "Back",
-		"noMore": "No more"
+		"noMore": "No more",
+		"close": "Close"
 	},
 	"market": {
 		"marketReport": "Market Report",

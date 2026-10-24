@@ -74,7 +74,7 @@
 							</template>
 							<template v-else>
 								<div class="flex-y-center gap-3 bg-linear-to-r from-[#E124AF] to-[#CC0EFB] rounded-2xl px-1 py-1"
-									@click="navigateTo(localePath('/login'))">
+									@click="openAuthModal('login')">
 									<SvgIcon name="icon_room_w" size="1.2rem" color="#fff" />
 									{{ $t('my.login') }}
 								</div>
@@ -110,6 +110,7 @@ import { usePortfolioStore } from '@/stores/portfolio'
 import { useUserStore } from '@/stores/user'
 
 const localePath = useLocalePath()
+const { open: openAuthModal } = useAuthModal()
 
 const balanceStore = useBalanceStore()
 const portfolioStore = usePortfolioStore()
@@ -172,6 +173,16 @@ onMounted(() => {
 onUnmounted(() => {
 	window.removeEventListener('scroll', handleScroll)
 })
+
+// 彈窗登入後頁面不會重新掛載，補抓 onMounted 時因為沒登入而取的 mock 資料
+watch(
+	() => userStore.isLogin,
+	(isLogin) => {
+		if (!isLogin) return
+		portfolioStore.fetchMyPortfolio()
+		balanceStore.fetchMyBalance()
+	},
+)
 
 const userInfo = ref({
 	level: '1',

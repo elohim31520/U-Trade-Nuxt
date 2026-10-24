@@ -116,6 +116,10 @@ import { useAiTradeStore } from '@/stores/aiTrade'
 import { useRoute } from 'vue-router'
 import { formatTime } from '@/utils/date'
 
+definePageMeta({
+    middleware: 'auth',
+})
+
 const localePath = useLocalePath()
 const route = useRoute()
 const jobId = route.params.jobId as string

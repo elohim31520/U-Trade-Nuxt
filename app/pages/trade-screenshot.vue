@@ -52,6 +52,10 @@ import type { UploaderFileListItem } from 'vant'
 import { useUserStore } from '@/stores/user'
 import { useAiTradeStore } from '@/stores/aiTrade'
 
+definePageMeta({
+	middleware: 'auth',
+})
+
 const { t } = useI18n()
 const localePath = useLocalePath()
 const userStore = useUserStore()

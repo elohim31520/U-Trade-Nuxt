@@ -4,6 +4,10 @@
 
 		<SideMenu />
 
+		<ClientOnly>
+			<AuthModal />
+		</ClientOnly>
+
 		<main :class="['grow transition-all duration-300', showHeader ? 'pt-[3.75rem]' : 'pt-0']">
 			<NuxtRouteAnnouncer />
 			<NuxtPage />

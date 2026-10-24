@@ -140,6 +140,9 @@ onMounted(() => {
 	fetchData()
 })
 
+// 彈窗登入後頁面不會重新掛載，改抓自己的資料取代 mock
+watch(() => userStore.isLogin, fetchData)
+
 onActivated(() => {
 	if (userStore.isLogin && !isDataRefreshed.value) {
 		fetchData()

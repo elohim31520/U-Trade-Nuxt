@@ -33,7 +33,7 @@ import { useUserStore } from '@/stores/user'
 
 const { t } = useI18n()
 const chartColor = useChartColor()
-const localePath = useLocalePath()
+const { open: openAuthModal } = useAuthModal()
 const userStore = useUserStore()
 const { $publicKV, $bffApi } = useNuxtApp()
 
@@ -114,7 +114,7 @@ const fetchData = async (days: number): Promise<chartData[]> => {
 const refreshData = async (days: number): Promise<void> => {
 	// 1. 權限檢查：如果沒登入 且 選的是 7 或 30 天
 	if (!userStore.isLogin && ![1, 3].includes(days)) {
-		navigateTo(localePath('/login'))
+		openAuthModal('login')
 		return
 	}
 

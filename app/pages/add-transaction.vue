@@ -66,8 +66,8 @@
 				<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
 					<path d="M10 13V4M10 4L6.5 7.5M10 4l3.5 3.5" stroke="var(--color-primary)" stroke-width="1.6"
 						stroke-linecap="round" stroke-linejoin="round" />
-					<path d="M3 14v1.5A1.5 1.5 0 004.5 17h11a1.5 1.5 0 001.5-1.5V14" stroke="var(--color-primary)" stroke-width="1.6"
-						stroke-linecap="round" />
+					<path d="M3 14v1.5A1.5 1.5 0 004.5 17h11a1.5 1.5 0 001.5-1.5V14" stroke="var(--color-primary)"
+						stroke-width="1.6" stroke-linecap="round" />
 				</svg>
 			</div>
 			<span class="text-sm font-semibold text-primary">{{ $t('transaction.upload_screenshot') }}</span>
@@ -84,6 +84,10 @@ import emitter from '~/utils/emitter'
 import { useI18n } from 'vue-i18n'
 import { useUserStore } from '@/stores/user'
 import type { TradeParams } from '@/types/trade'
+
+definePageMeta({
+	middleware: 'auth',
+})
 
 const { t } = useI18n()
 const localePath = useLocalePath()

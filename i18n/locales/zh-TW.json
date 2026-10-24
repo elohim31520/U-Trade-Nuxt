@@ -49,7 +49,9 @@
 		"google_login_fail": "Google 登入失敗",
 		"invalid_email_format": "不正確的email格式",
 		"welcome_back": "歡迎回來",
-		"login_to_continue": "登入您的帳號以繼續"
+		"login_to_continue": "登入您的帳號以繼續",
+		"login_fail": "登入失敗",
+		"no_account": "還沒有帳號？"
 	},
 	"companies": {
 		"title": "公司列表",
@@ -196,7 +198,9 @@
 		"enter_confirm_password": "請再次輸入密碼",
 		"password_mismatch": "兩次輸入的密碼不一致",
 		"register": "註冊",
-		"register_success": "註冊成功"
+		"register_success": "註冊成功",
+		"register_fail": "註冊失敗",
+		"has_account": "已經有帳號？"
 	},
 	"avatar_generator": {
 		"title": "卡通頭像生成器",
@@ -330,7 +334,8 @@
 		"cancel": "取消",
 		"confirm": "確認",
 		"back": "返回",
-		"noMore": "沒有更多了"
+		"noMore": "沒有更多了",
+		"close": "關閉"
 	},
 	"market": {
 		"marketReport": "市場報告",

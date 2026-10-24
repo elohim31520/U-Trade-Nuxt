@@ -34,16 +34,16 @@
 					<p class="text-[15px] font-semibold text-gray-900">{{ $t('sidemenu.guest_title') }}</p>
 					<p class="mt-1 text-xs leading-relaxed text-gray-500">{{ $t('sidemenu.guest_desc') }}</p>
 					<div class="mt-2.5 grid grid-cols-2 gap-2">
-						<NuxtLink :to="localePath('/login')" @click="closeMenu"
-							class="flex items-center justify-center gap-1.5 rounded-xl bg-linear-to-br from-primary to-primary-600 py-2 text-sm font-semibold text-on-primary shadow-sm transition active:scale-95">
+						<button type="button" @click="openAuth('login')"
+							class="flex items-center justify-center gap-1.5 rounded-xl bg-linear-to-br from-primary to-primary-600 py-2 text-sm font-semibold text-on-primary! shadow-sm transition active:scale-95">
 							<SvgIcon name="menu_login" size="1.125rem" />
 							{{ $t('sidemenu.login') }}
-						</NuxtLink>
-						<NuxtLink :to="localePath('/register')" @click="closeMenu"
-							class="flex items-center justify-center gap-1.5 rounded-xl border border-gray-200 bg-surface-card py-2 text-sm font-semibold text-gray-700 transition active:scale-95">
+						</button>
+						<button type="button" @click="openAuth('register')"
+							class="flex items-center justify-center gap-1.5 rounded-xl border border-gray-200 bg-surface-card py-2 text-sm font-semibold text-gray-700! transition active:scale-95">
 							<SvgIcon name="menu_register" size="1.125rem" />
 							{{ $t('sidemenu.register') }}
-						</NuxtLink>
+						</button>
 					</div>
 				</div>
 
@@ -140,6 +140,7 @@ const switchLocalePath = useSwitchLocalePath()
 const { locale } = useI18n()
 const uiStore = useUIStore()
 const userStore = useUserStore()
+const authModal = useAuthModal()
 
 const menuGroups: { title: string; items: MenuItem[] }[] = [
 	{
@@ -208,10 +209,15 @@ const closeMenu = () => {
 	uiStore.hideMenu()
 }
 
+const openAuth = (mode: AuthMode) => {
+	closeMenu()
+	authModal.open(mode)
+}
+
 const logout = async () => {
 	closeMenu()
-	userStore.logout()
-	await navigateTo(localePath('/login'))
+	await userStore.logout()
+	await navigateTo(localePath('/'))
 	window.location.reload()
 }
 </script>

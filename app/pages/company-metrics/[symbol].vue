@@ -43,7 +43,7 @@
 			<div class="flex-y-center justify-center font-[500] mb-2">
 				{{ `${bigSymbol} ${$t('company_metrics.pe_forwards_title')}` }}...
 			</div>
-			<div class="flex-y-center justify-center text-primary" @click="navigateTo(localePath('/login'))">
+			<div class="flex-y-center justify-center text-primary" @click="openAuthModal('login')">
 				{{ $t('company_metrics.login_to_see_data') }}
 			</div>
 		</div>
@@ -60,7 +60,7 @@ import { toUpper as _toUpper, reverse as _reverse, get as _get } from 'lodash-es
 import type { StockMetrics } from '@/types/stockMetrics'
 
 const uiStore = useUIStore()
-const localePath = useLocalePath()
+const { open: openAuthModal } = useAuthModal()
 const route = useRoute()
 const userStore = useUserStore()
 const { $publicKV } = useNuxtApp()
@@ -87,6 +87,14 @@ const getMetrics = async (symbol: string, days: number = 60) => {
 onMounted(() => {
 	getMetrics(symbol.value)
 })
+
+// 彈窗登入後頁面不會重新掛載，補抓非熱門股票的資料
+watch(
+	() => userStore.isLogin,
+	(isLogin) => {
+		if (isLogin) getMetrics(symbol.value)
+	},
+)
 
 const { t } = useI18n()
 

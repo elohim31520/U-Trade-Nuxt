@@ -57,7 +57,7 @@ export function createFetchHandlers(options: CreateHandlersOptions = {}) {
                         const { logout } = useAuth()
                         logout()
                     } else {
-                        navigateTo('/login')
+                        navigateTo({ path: useLocalePath()('/'), query: { auth: 'login' } })
                     }
                 }
                 if (nuxtApp) {

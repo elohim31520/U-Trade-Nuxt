@@ -133,8 +133,6 @@ export default defineNuxtConfig({
 	routeRules: (() => {
 		// 純 CSR 路由(不需要 SEO,登入態相關頁面)
 		const csrRoutes = [
-			'/login',
-			'/register',
 			'/add-transaction',
 			'/change-password',
 			'/m7',
@@ -156,6 +154,11 @@ export default defineNuxtConfig({
 			'/zh/posts/**': { prerender: true },
 			'/': { swr: 300 },
 			'/zh': { swr: 300 },
+			// 登入／註冊改成彈窗，舊網址導回首頁並開彈窗（plugins/authModalFromQuery.client.ts 接手）
+			'/login': { redirect: { to: '/?auth=login', statusCode: 302 } },
+			'/zh/login': { redirect: { to: '/zh?auth=login', statusCode: 302 } },
+			'/register': { redirect: { to: '/?auth=register', statusCode: 302 } },
+			'/zh/register': { redirect: { to: '/zh?auth=register', statusCode: 302 } },
 		}
 
 		// 補齊 CSR 路由(en 無前綴 + zh 加 /zh 前綴)

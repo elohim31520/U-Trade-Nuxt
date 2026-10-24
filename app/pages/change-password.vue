@@ -31,6 +31,10 @@ import { showToast } from 'vant'
 import { useI18n } from 'vue-i18n'
 import { useUserStore } from '@/stores/user'
 
+definePageMeta({
+	middleware: 'auth',
+})
+
 const { t } = useI18n()
 const localePath = useLocalePath()
 const userStore = useUserStore()
@@ -59,8 +63,9 @@ const onSubmit = async (values: { oldPassword: string; newPassword: string }) =>
 	})
 	if (res.success) {
 		showToast(t('change_password.change_success'))
-		userStore.logout()
-		navigateTo(localePath('/login'))
+		await userStore.logout()
+		await navigateTo(localePath('/'))
+		useAuthModal().open('login')
 	}
 }
 </script>
