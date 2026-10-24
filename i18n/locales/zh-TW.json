@@ -282,7 +282,10 @@
 		"meta_description": "掌握最新美股市場新聞、公司公告與財經頭條。",
 		"searchPlaceholder": "搜尋新聞",
 		"searchHint": "輸入關鍵字搜尋新聞",
-		"noResult": "找不到相關新聞"
+		"noResult": "找不到相關新聞",
+		"empty": "目前還沒有新聞",
+		"pinned": "置頂",
+		"loading": "載入中..."
 	},
 	"monte-sim": {
 		"selectStock": "選擇股票",

@@ -282,7 +282,10 @@
 		"meta_description": "Stay updated with the latest US stock market news, company announcements, and financial headlines.",
 		"searchPlaceholder": "Search News",
 		"searchHint": "Enter keywords to search news",
-		"noResult": "No related news found"
+		"noResult": "No related news found",
+		"empty": "No news yet",
+		"pinned": "Pinned",
+		"loading": "Loading..."
 	},
 	"monte-sim": {
 		"selectStock": "Select Stock",

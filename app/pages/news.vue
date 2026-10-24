@@ -1,33 +1,46 @@
 <template>
     <div class="min-h-screen bg-slate-50">
-        <!-- Header -->
-        <div
-            class="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-slate-100 px-4 py-3 flex items-center gap-3">
-            <div class="w-1 h-6 rounded-full bg-linear-to-b from-pink-500 to-[#F88379]" />
-            <h1 class="text-lg font-bold text-slate-800 tracking-tight flex-1">{{ t('news.title') }}</h1>
-            <van-icon name="search" size="20" class="text-slate-500 cursor-pointer" @click="isSearching = true" />
-        </div>
-
         <!-- 搜尋組件 -->
         <NewsSearch v-if="isSearching" @close="isSearching = false" />
 
-        <!-- SSR 第一頁 -->
         <template v-else>
-            <div class="news-list px-4 pt-4 space-y-4">
-                <NewsCard v-for="item in firstPageList" :key="item.id" :item="item" />
-            </div>
+            <!-- 頁首：標題 + 搜尋入口 -->
+            <header class="bg-linear-to-b from-primary/20 via-primary/5 to-transparent px-4 pt-6 pb-5">
+                <h1 class="text-[26px] font-bold leading-tight tracking-tight text-slate-900">{{ t('news.title') }}</h1>
+                <p class="mt-1 text-[13px] text-slate-500">{{ t('news.subtitle') }}</p>
 
-            <!-- CSR 後續分頁（Waterfall） -->
-            <ClientOnly>
-                <Waterfall ref="waterfallRef" dataPath="data.rows" :initialPage="2"
-                    :apiFunction="(params) => $publicApi.getNews(params)">
-                    <template #default="{ list }">
-                        <div class="news-list px-4 pb-6 space-y-4">
-                            <NewsCard v-for="item in list" :key="item.id" :item="item" />
-                        </div>
-                    </template>
-                </Waterfall>
-            </ClientOnly>
+                <button type="button"
+                    class="news-search mt-4 flex h-11 w-full items-center gap-2.5 rounded-full border border-white bg-white/90 px-4 text-left text-sm text-slate-400 transition-colors active:bg-white"
+                    @click="isSearching = true">
+                    <van-icon name="search" size="18" />
+                    {{ t('news.searchPlaceholder') }}
+                </button>
+            </header>
+
+            <template v-if="firstPageList.length">
+                <!-- SSR 第一頁（內距放在外層 div：全域 `ol, ul { padding: 0 }` 未分層，會蓋掉 ol 上的 px-4） -->
+                <div class="px-4">
+                    <NewsTimeline :items="firstPageList" />
+                </div>
+
+                <!-- CSR 後續分頁（Waterfall）；與第一頁同一天的新聞接在同一組日期下 -->
+                <ClientOnly>
+                    <Waterfall ref="waterfallRef" dataPath="data.rows" :initialPage="2"
+                        :finished-text="t('common.noMore')" :loading-text="t('news.loading')"
+                        :apiFunction="(params) => $publicApi.getNews(params)">
+                        <template #default="{ list }">
+                            <div class="px-4">
+                                <NewsTimeline :items="list" :after="firstPageList.at(-1)" />
+                            </div>
+                        </template>
+                    </Waterfall>
+                </ClientOnly>
+            </template>
+
+            <div v-else class="flex flex-col items-center justify-center gap-3 pt-20 text-slate-400">
+                <van-icon name="description-o" size="48" />
+                <p class="text-sm">{{ t('news.empty') }}</p>
+            </div>
         </template>
     </div>
 </template>
@@ -51,3 +64,12 @@ usePageSeo(computed(() => ({
     description: t('news.meta_description'),
 })))
 </script>
+
+<style scoped>
+/* 搜尋入口：白底細描邊 + 柔影，浮在暈染背景上 */
+.news-search {
+    box-shadow:
+        0 1px 2px rgb(16 24 40 / 0.04),
+        0 6px 16px -8px rgb(16 24 40 / 0.12);
+}
+</style>
