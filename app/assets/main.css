@@ -8,6 +8,14 @@
 	--color-primary: #f88379;
 	--color-primary-600: #f4584b;
 
+	/* 底部導覽的漸層與 active 色（bg-linear-to-r from-accent to-accent-2 / text-accent-2） */
+	--color-accent: #ec09f8;
+	--color-accent-2: #b732ff;
+
+	/* shadow-nav-home：中間首頁按鈕往下偏移 6px 的光暈；shadow-nav-active：active 頂部亮條 */
+	--shadow-nav-home: 0 6px 16px color-mix(in oklch, var(--color-accent-2) 45%, transparent);
+	--shadow-nav-active: 0 0 10px color-mix(in oklch, var(--color-accent-2) 40%, transparent);
+
 	/* max-w-480px */
 	--container-480px: 480px;
 

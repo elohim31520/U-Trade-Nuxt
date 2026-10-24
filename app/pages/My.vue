@@ -100,8 +100,6 @@
 		</div>
 
 		<UpdateUSDFormPopup v-model="showUpdateUSDFormPopup" />
-
-		<Footer />
 	</div>
 </template>
 
