@@ -112,7 +112,15 @@
 		"register": "Register",
 		"logout": "Logout",
 		"theme": "Theme",
-		"theme_default": "Light"
+		"theme_default": "Light",
+		"section_market": "Market",
+		"section_mine": "My Assets",
+		"section_tools": "Tools",
+		"preferences": "Preferences",
+		"language": "Language",
+		"close": "Close menu",
+		"guest_title": "Sign in to sync your portfolio",
+		"guest_desc": "Log trades, track P&L, and view it on any device"
 	},
 	"footer": {
 		"home": "Home",
