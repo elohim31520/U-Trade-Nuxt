@@ -26,6 +26,9 @@
 		"load_failed": "載入失敗，點擊重試"
 	},
 	"my": {
+		"guest": "訪客",
+		"usd_balance": "美元餘額",
+		"allocation": "資產配置",
 		"cash": "現金",
 		"portfolio": "持倉",
 		"update_balance": "修改餘額",

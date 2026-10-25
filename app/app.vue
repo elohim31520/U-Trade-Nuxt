@@ -1,6 +1,6 @@
 <template>
 	<div class="min-h-screen flex flex-col max-w-[480px] mx-auto bg-surface pb-[6rem]">
-		<AppHeader v-if="showHeader" />
+		<AppHeader />
 
 		<SideMenu />
 
@@ -8,7 +8,7 @@
 			<AuthModal />
 		</ClientOnly>
 
-		<main :class="['grow transition-all duration-300', showHeader ? 'pt-[3.75rem]' : 'pt-0']">
+		<main class="grow pt-[3.75rem]">
 			<NuxtRouteAnnouncer />
 			<NuxtPage />
 		</main>
@@ -19,9 +19,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
 
-const route = useRoute()
 const { t } = useI18n()
 
 usePageSeo(computed(() => ({
@@ -30,9 +28,4 @@ usePageSeo(computed(() => ({
 })))
 
 useHead({ script: [{ innerHTML: themeInitScript, tagPosition: 'head' }] })
-
-const showHeader = computed(() => {
-	if (['/my', '/my/'].includes(route.path)) return false
-	return true
-})
 </script>

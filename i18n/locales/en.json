@@ -26,6 +26,9 @@
 		"load_failed": "Failed to load. Tap to retry"
 	},
 	"my": {
+		"guest": "Guest",
+		"usd_balance": "USD Balance",
+		"allocation": "Allocation",
 		"cash": "Cash",
 		"portfolio": "Portfolio",
 		"update_balance": "Refresh $",

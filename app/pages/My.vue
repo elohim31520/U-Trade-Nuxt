@@ -1,120 +1,126 @@
 <template>
-	<div class="w-full-limited overflow-hidden">
-		<div class="min-h-screen bg-[#f5f5f5] pb-[6rem]">
-			<div ref="headerWrapper" class="transition-all duration-300"
-				:class="{ 'fixed top-0 left-0 right-0 z-50 w-full-limited pc:left-[calc(50%-240px)]': isScrolled }">
-				<div class="bg-[url('/my/bg.webp')] bg-cover bg-center bg-no-repeat p-4 pt-[3rem] text-white transition-all duration-300 ease-in-out"
-					:class="isScrolled ? 'h-[10rem] pt-[5rem]' : 'h-[16rem] pt-[3rem]'">
-					<!-- User Info -->
-					<div class="flex-y-center transition-all duration-300 ease-in-out"
-						:class="{ '-translate-y-[2.5rem]': isScrolled }">
-						<div class="relative">
-							<img :src="userStore.userInfo.picture" alt="avatar"
-								class="rounded-full transition-all duration-300 ease-in-out"
-								:class="isScrolled ? 'w-[2.5rem] h-[2.5rem]' : 'w-[4.375rem] h-[4.375rem]'" />
-						</div>
+	<div class="flex flex-col gap-4 px-4 pt-4 pb-6">
+		<!-- 帳號與餘額 -->
+		<section
+			class="relative overflow-hidden rounded-3xl bg-linear-to-br from-accent to-accent-2 p-5 text-on-primary shadow-nav-home">
+			<!-- 兩顆柔光圓，讓漸層底不是一片平面 -->
+			<span class="pointer-events-none absolute -top-16 -right-12 size-48 rounded-full bg-on-primary/10" />
+			<span class="pointer-events-none absolute -bottom-20 -left-10 size-44 rounded-full bg-on-primary/8" />
 
-						<div class="ml-3 flex-1 flex-col">
-							<div class="text-white">
-								<div class="flex items-center">
-									<span class="font-[500]">{{ userStore.userInfo.name }}</span>
-									<span
-										class="ml-1 bg-#FDE9FF text-#BA05C3 flex-y-center justify-center rounded-full font-[500] text-xs px-1 py-1">
-										Lv.{{ userInfo.level }}
-									</span>
-								</div>
-								<div class="flex-y-center text-#FAC9FF text-xs mt-1 font-[500]">
-									<span class="flex-y-center gap-5" v-if="userStore.username">
-										ID:{{ userStore.username }}
-										<SvgIcon name="icon_room" size="1rem" />
-									</span>
-								</div>
-							</div>
-
-							<!-- 持倉比例 -->
-							<div v-show="!isScrolled"
-								class="flex-y-center gap-4 transition-all duration-300 ease-in-out mt-17">
-								<div class="flex flex-col">
-									<span class="font-[500]">{{ cashPercentage }}%</span>
-									<span class="text-#FAC9FF text-10">{{ $t('my.cash') }}</span>
-								</div>
-								<div class="flex-y-center flex-col">
-									<span class="font-[500]">{{ portfolioPercentage }}%</span>
-									<span class="text-#FAC9FF text-10">{{ $t('my.portfolio') }}</span>
-								</div>
-							</div>
-						</div>
+			<div class="relative flex items-center gap-3">
+				<img :src="userStore.userInfo.picture" alt="avatar"
+					class="size-14 shrink-0 rounded-full object-cover ring-2 ring-on-primary/50" />
+				<div class="min-w-0 flex-1">
+					<div class="flex items-center gap-1.5">
+						<span class="truncate text-base font-semibold">{{ displayName }}</span>
+						<span class="shrink-0 rounded-full bg-on-primary/20 px-2 py-0.5 text-[11px] font-semibold">
+							Lv.{{ userInfo.level }}
+						</span>
 					</div>
-				</div>
-
-				<div class="transition-all duration-300 ease-in-out"
-					:class="isScrolled ? '-mt-[2rem]' : '-mt-[6.25rem]'">
-					<!-- Wallet Info -->
-					<div class="flex-y-center justify-between transition-all duration-300 ease-in-out bg-surface-card"
-						:class="isScrolled ? 'rounded-t-[1.25rem] p-1' : 'rounded-full px-1 mx-1 py-1'">
-						<div class="flex-y-center font-bold">
-							<SvgIcon class="text-primary" name="icon_dollar_fill" size="1.6rem" />
-							<span class="ml-5 font-[600] text-xl text-primary">
-								{{ balanceStore.usdBalance }}
-							</span>
-							<SvgIcon class="text-primary ml-5" name="icon_arrow_right" size="1rem" />
-						</div>
-						<div class="flex-y-center gap-2 text-white text-xs font-[500]">
-							<template v-if="userStore.isLogin">
-								<div class="flex-y-center gap-3 bg-linear-to-r from-[#FF9021] to-[#FFB60C] rounded-2xl px-1 py-1"
-									@click="showUpdateUSDFormPopup = true">
-									<SvgIcon name="icon_redeem" size="1.2rem" color="#fff" />
-									{{ $t('my.update_balance') }}
-								</div>
-								<div @click="navigateTo(localePath('/change-password'))"
-									class="flex-y-center gap-3 ml-5 bg-linear-to-r from-cyan-500 to-blue-500 rounded-2xl px-1 py-1">
-									<SvgIcon name="icon_room_w" size="1.2rem" />
-									{{ $t('my.change_password') }}
-								</div>
-							</template>
-							<template v-else>
-								<div class="flex-y-center gap-3 bg-linear-to-r from-[#E124AF] to-[#CC0EFB] rounded-2xl px-1 py-1"
-									@click="openAuthModal('login')">
-									<SvgIcon name="icon_room_w" size="1.2rem" color="#fff" />
-									{{ $t('my.login') }}
-								</div>
-							</template>
-						</div>
-					</div>
+					<p v-if="userStore.username" class="mt-0.5 truncate text-xs text-on-primary/70">
+						ID: {{ userStore.username }}
+					</p>
 				</div>
 			</div>
 
-			<ClientOnly>
-				<div class="bg-surface-card" :style="{ paddingTop: isScrolled ? headerHeight + 'px' : '0px' }">
-					<!-- My Portfolio -->
-					<div class="m-2 pt-5">
-						<h3 class="font-[500] mb-1 text-primary" v-if="userStore.isLogin">{{ $t('my.my_portfolio') }}
-						</h3>
-						<h3 class="font-[500] mb-1 text-primary" v-else>{{ $t('my.login_to_create_portfolio') }}</h3>
-						<div class="w-full">
-							<PortfolioChart />
-						</div>
-					</div>
+			<div class="relative mt-6">
+				<p class="text-xs font-medium tracking-wide text-on-primary/70">{{ $t('my.usd_balance') }}</p>
+				<p class="mt-1 flex items-baseline gap-1 tabular-nums">
+					<span class="text-xl font-medium text-on-primary/80">$</span>
+					<span class="text-4xl leading-none font-semibold">{{ balanceText }}</span>
+				</p>
+			</div>
+
+			<!-- 現金／持倉比例 -->
+			<div class="relative mt-5">
+				<p class="mb-2 text-xs font-medium tracking-wide text-on-primary/70">{{ $t('my.allocation') }}</p>
+				<div class="h-2 overflow-hidden rounded-full bg-on-primary/25">
+					<div class="h-full rounded-full bg-on-primary transition-[width] duration-500"
+						:style="{ width: `${cashPercentage}%` }" />
 				</div>
+				<div class="mt-2 flex items-center justify-between text-xs tabular-nums">
+					<span class="flex items-center gap-1.5">
+						<span class="size-2 rounded-full bg-on-primary" />
+						<span class="text-on-primary/70">{{ $t('my.cash') }}</span>
+						<span class="font-semibold">{{ cashPercentage }}%</span>
+					</span>
+					<span class="flex items-center gap-1.5">
+						<span class="size-2 rounded-full bg-on-primary/25" />
+						<span class="text-on-primary/70">{{ $t('my.portfolio') }}</span>
+						<span class="font-semibold">{{ portfolioPercentage }}%</span>
+					</span>
+				</div>
+			</div>
+
+			<!-- Vant 的 base 樣式（未分層）把 button 的 color / font 設成 inherit，會蓋掉 Tailwind 的 text-* / font-*，
+			     所以文字樣式放在按鈕內層的 span，不要寫在 <button> 上 -->
+			<div class="relative mt-5 grid gap-2.5" :class="userStore.isLogin ? 'grid-cols-2' : 'grid-cols-1'">
+				<template v-if="userStore.isLogin">
+					<button type="button"
+						class="flex items-center justify-center rounded-xl bg-on-primary py-2.5 transition active:scale-95"
+						@click="showUpdateUSDFormPopup = true">
+						<span class="flex items-center gap-1.5 text-sm font-semibold text-accent-2">
+							<SvgIcon name="my_wallet" size="1.125rem" />
+							{{ $t('my.update_balance') }}
+						</span>
+					</button>
+					<button type="button"
+						class="flex items-center justify-center rounded-xl border border-on-primary/25 bg-on-primary/15 py-2.5 backdrop-blur-sm transition active:scale-95"
+						@click="navigateTo(localePath('/change-password'))">
+						<span class="flex items-center gap-1.5 text-sm font-semibold">
+							<SvgIcon name="my_lock" size="1.125rem" />
+							{{ $t('my.change_password') }}
+						</span>
+					</button>
+				</template>
+				<button v-else type="button"
+					class="flex items-center justify-center rounded-xl bg-on-primary py-2.5 transition active:scale-95"
+					@click="openAuthModal('login')">
+					<span class="flex items-center gap-1.5 text-sm font-semibold text-accent-2">
+						<SvgIcon name="menu_login" size="1.125rem" />
+						{{ $t('my.login') }}
+					</span>
+				</button>
+			</div>
+		</section>
+
+		<!-- 投資組合 -->
+		<section class="rounded-3xl border border-gray-200 bg-surface-card p-4 shadow-card-primary">
+			<h3 class="flex items-center gap-2 text-[15px] font-semibold text-gray-900">
+				<span class="h-4 w-1 rounded-full bg-linear-to-b from-accent to-accent-2" />
+				{{ userStore.isLogin ? $t('my.my_portfolio') : $t('my.login_to_create_portfolio') }}
+			</h3>
+			<ClientOnly>
+				<PortfolioChart :show-title="false" />
 			</ClientOnly>
-		</div>
+		</section>
 
 		<UpdateUSDFormPopup v-model="showUpdateUSDFormPopup" />
 	</div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch, nextTick, computed } from 'vue'
+import { ref, onMounted, watch, computed } from 'vue'
 import { useBalanceStore } from '@/stores/balance'
 import { usePortfolioStore } from '@/stores/portfolio'
 import { useUserStore } from '@/stores/user'
 
+const { t } = useI18n()
 const localePath = useLocalePath()
 const { open: openAuthModal } = useAuthModal()
 
 const balanceStore = useBalanceStore()
 const portfolioStore = usePortfolioStore()
 const userStore = useUserStore()
+
+const displayName = computed(() => userStore.userInfo.name || t('my.guest'))
+
+const balanceText = computed(() =>
+	Number(balanceStore.usdBalance).toLocaleString('en-US', {
+		minimumFractionDigits: 2,
+		maximumFractionDigits: 2,
+	}),
+)
 
 const portfolioValue = computed(() => {
 	return portfolioStore.portfolioData.reduce((sum, item) => {
@@ -140,38 +146,15 @@ const portfolioPercentage = computed(() => {
 	return ((portfolioValue.value / totalValue.value) * 100).toFixed(2)
 })
 
-const isScrolled = ref(false)
-const headerWrapper = ref<HTMLDivElement | null>(null)
-const headerHeight = ref(0)
 const showUpdateUSDFormPopup = ref(false)
 
-const handleScroll = () => {
-	isScrolled.value = window.scrollY > 50
-}
-
-watch(isScrolled, async (newVal) => {
-	if (newVal) {
-		await nextTick()
-		if (headerWrapper.value) {
-			headerHeight.value = headerWrapper.value.offsetHeight + 50
-		}
-	}
-})
-
 onMounted(() => {
-	window.addEventListener('scroll', handleScroll, { passive: true })
-	// check on initial load
-	handleScroll()
 	if (userStore.isLogin) {
 		portfolioStore.fetchMyPortfolio()
 		balanceStore.fetchMyBalance()
 	} else {
 		portfolioStore.fetchMockPortfolio()
 	}
-})
-
-onUnmounted(() => {
-	window.removeEventListener('scroll', handleScroll)
 })
 
 // 彈窗登入後頁面不會重新掛載，補抓 onMounted 時因為沒登入而取的 mock 資料

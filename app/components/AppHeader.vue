@@ -8,7 +8,7 @@
 				width: isScrolled ? '5rem' : '7rem'
 			}" @click="navigateTo(localePath('/'))"></div>
 		<div @click.prevent="uiStore.showMenu" class="p-2 ml-auto mr-2.5">
-			<SvgIcon name="icon_button_Menu" :size="isScrolled ? '1.5rem' : '2rem'" />
+			<SvgIcon name="icon_button_Menu" :size="isScrolled ? '1.5rem' : '2rem'" class="text-gray-700" />
 		</div>
 	</header>
 </template>

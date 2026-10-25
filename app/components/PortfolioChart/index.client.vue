@@ -17,12 +17,15 @@ defineOptions({
 	name: 'PortfolioChart',
 })
 
+const props = withDefaults(defineProps<{ showTitle?: boolean }>(), { showTitle: true })
+
 const chartOptions = computed<EChartsOption | null>(() => {
 	const data = portfolioStore.portfolioData
 	if (!data || data.length === 0) return null
 
 	return {
 		title: {
+			show: props.showTitle,
 			text: '投資組合佔比',
 			left: 'center',
 		},
