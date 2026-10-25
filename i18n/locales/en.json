@@ -243,7 +243,7 @@
 		"tips": "This market momentum indicator is positively correlated with market sentiment and momentum: higher readings reflect elevated sentiment and robust momentum, while negative and declining values signal weakening momentum and heightened downside risk."
 	},
 	"market_breadth": {
-		"title": "S&P 500 Advance/Decline Percentage:",
+		"title": "S&P 500 Advance/Decline Percentage",
 		"advancers": "Advancers",
 		"decliners": "Decliners"
 	},
