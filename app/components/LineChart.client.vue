@@ -24,25 +24,25 @@ const {
 	smooth?: boolean | number
 	/** 卡片內嵌用：不顯示圖表標題，收緊邊距、改用短日期與面積漸層 */
 	compact?: boolean
-	xAxisKey?: string
-	seriesKey?: string
+	xAxisKey: keyof StockMetrics
+	seriesKey: keyof StockMetrics
 }>()
 
 const color = computed(() => lineColor || '#F88379')
 
 const xAxisData = computed(() => {
-	return chartData.map((item) => new Date(item[xAxisKey as keyof typeof item]).toLocaleDateString())
+	return chartData.map((item) => new Date(item[xAxisKey]).toLocaleDateString())
 })
 
 const shortLabels = computed(() => {
 	return chartData.map((item) => {
-		const date = new Date(item[xAxisKey as keyof typeof item])
+		const date = new Date(item[xAxisKey])
 		return `${date.getMonth() + 1}/${date.getDate()}`
 	})
 })
 
 const seriesData = computed(() => {
-	return chartData.map((item) => parseFloat(item[seriesKey as keyof typeof item] as keyof StockMetrics))
+	return chartData.map((item) => parseFloat(String(item[seriesKey])))
 })
 
 const option = computed<EChartsOption>(() => ({
