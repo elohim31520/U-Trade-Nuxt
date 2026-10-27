@@ -64,7 +64,7 @@ const option = computed<EChartsOption>(() => ({
 				color: '#9ca3af',
 				fontSize: 10,
 				hideOverlap: true,
-				formatter: (_value: string, index: number) => shortLabels.value[index],
+				formatter: (_value: string, index: number) => shortLabels.value[index] ?? '',
 			}
 			: undefined,
 		splitLine: {
