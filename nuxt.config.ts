@@ -99,15 +99,6 @@ export default defineNuxtConfig({
 	},
 	app: {
 		baseURL: '/',
-		head: {
-			script: [
-				{
-					src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3738209519931286',
-					async: true,
-					crossorigin: 'anonymous',
-				},
-			],
-		},
 	},
 	vite: {
 		vue: {

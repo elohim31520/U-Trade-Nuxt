@@ -63,7 +63,8 @@
 	},
 	"posts": {
 		"meta_title": "Investment Articles & Insights - UrTrade",
-		"meta_description": "Read expert articles on US stock investing, market analysis, and portfolio strategies."
+		"meta_description": "Read expert articles on US stock investing, market analysis, and portfolio strategies.",
+		"empty": "No articles yet"
 	},
 	"portfolio": {
 		"my_portfolio": "My Portfolio",

@@ -45,7 +45,7 @@
 
 		<!-- 空狀態 -->
 		<div v-else>
-			<p class="text-gray-400 text-sm text-center py-10">{{ $t('no_posts') }}</p>
+			<p class="text-gray-400 text-sm text-center py-10">{{ $t('posts.empty') }}</p>
 		</div>
 	</div>
 </template>

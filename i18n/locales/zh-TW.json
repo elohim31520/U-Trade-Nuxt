@@ -63,7 +63,8 @@
 	},
 	"posts": {
 		"meta_title": "投資文章與市場洞察 - UrTrade",
-		"meta_description": "閱讀美股投資、市場分析與投資組合策略相關的專業文章。"
+		"meta_description": "閱讀美股投資、市場分析與投資組合策略相關的專業文章。",
+		"empty": "目前沒有文章"
 	},
 	"portfolio": {
 		"my_portfolio": "我的投資組合",
