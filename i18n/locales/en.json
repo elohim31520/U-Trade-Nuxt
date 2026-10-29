@@ -335,7 +335,8 @@
 		"submit": "Submit Screenshot",
 		"no_file": "Please upload a screenshot first",
 		"success": "Upload successful!",
-		"failed": "Upload failed, please try again"
+		"failed": "Upload failed, please try again",
+		"remove": "Remove image"
 	},
 	"common": {
 		"cancel": "Cancel",

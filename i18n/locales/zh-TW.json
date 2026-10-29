@@ -335,7 +335,8 @@
 		"submit": "送出截圖",
 		"no_file": "請先上傳截圖",
 		"success": "上傳成功！",
-		"failed": "上傳失敗，請重試"
+		"failed": "上傳失敗，請重試",
+		"remove": "移除圖片"
 	},
 	"common": {
 		"cancel": "取消",
