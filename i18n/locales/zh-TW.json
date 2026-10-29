@@ -81,7 +81,10 @@
 		"confirm": "確認",
 		"confirm_delete": "確定要刪除嗎？",
 		"missing_item_id": "缺少項目ID，無法刪除",
-		"delete_success": "刪除成功"
+		"delete_success": "刪除成功",
+		"holdings_count": "{count} 檔持股",
+		"allocation": "投資組合佔比",
+		"swipe_hint": "向左或向右滑動持股，可更新或刪除"
 	},
 	"transaction": {
 		"stock_id": "股票代號",

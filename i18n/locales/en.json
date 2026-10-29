@@ -81,7 +81,10 @@
 		"confirm": "Confirm",
 		"confirm_delete": "Are you sure you want to delete?",
 		"missing_item_id": "Missing item ID, cannot delete",
-		"delete_success": "Deleted successfully"
+		"delete_success": "Deleted successfully",
+		"holdings_count": "{count} holdings",
+		"allocation": "Allocation",
+		"swipe_hint": "Swipe a holding left or right to update or delete"
 	},
 	"transaction": {
 		"stock_id": "Symbol",
