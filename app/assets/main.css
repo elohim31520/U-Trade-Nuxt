@@ -31,6 +31,9 @@
 	/* shadow-card-primary */
 	--shadow-card-primary: 0 0 1rem 0 #0000001a;
 
+	/* shadow-card-soft：細描邊卡片用的分層柔影（最新資訊、市場報價、熱力圖外框） */
+	--shadow-card-soft: 0 1px 2px rgb(16 24 40 / 0.04), 0 8px 24px -12px rgb(16 24 40 / 0.1);
+
 	/* animate-gray (骨架屏) */
 	--animate-gray: gray 1s ease-in-out infinite alternate forwards;
 	@keyframes gray {

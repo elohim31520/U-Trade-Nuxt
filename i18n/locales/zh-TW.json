@@ -1,6 +1,10 @@
 {
 	"home": {
 		"title": "美股市場總覽",
+		"eyebrow": "UrTrade · 美股",
+		"subtitle": "新聞、動能、熱力圖與報價，一次掌握",
+		"heatmap_title": "標普 500 熱力圖",
+		"heatmap_subtitle": "依板塊與市值呈現當日漲跌",
 		"meta_title": "首頁 - UrTrade",
 		"meta_description": "查看最新的市場動態、熱力圖和市場寬度數據，全面了解美股市場趨勢。"
 	},

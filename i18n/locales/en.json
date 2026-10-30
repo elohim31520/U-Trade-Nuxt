@@ -1,6 +1,10 @@
 {
 	"home": {
 		"title": "Market Overview",
+		"eyebrow": "UrTrade · US Markets",
+		"subtitle": "News, momentum, heatmap and quotes at a glance",
+		"heatmap_title": "S&P 500 Heatmap",
+		"heatmap_subtitle": "Today's moves by sector and market cap",
 		"meta_title": "Homepage - UrTrade",
 		"meta_description": "View the latest market dynamics, heat maps, and market breadth data to fully understand US stock market trends."
 	},

@@ -1,70 +1,90 @@
 <template>
-	<div class="py-1">
-		<div class="flex items-baseline justify-between mb-5 px-1">
-			<span class="text-[13px] font-[500] tracking-widest uppercase text-gray-400">
-				{{ $t('market_quotes.title') }}
-			</span>
-			<span class="text-sm text-gray-300">{{ fetchedData.length }} 檔</span>
-		</div>
+	<section>
+		<SectionHeader :title="$t('market_quotes.title')">
+			<template #aside>
+				<span class="shrink-0 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold tabular-nums text-primary">
+					{{ fetchedData.length }}
+				</span>
+			</template>
+		</SectionHeader>
 
-		<ul class="flex flex-col gap-2">
-			<li v-for="(item, index) in fetchedData" :key="index"
-				class="flex items-center gap-3 px-4 py-3.5 bg-surface-card border border-gray-100 rounded-xl cursor-pointer active:scale-[0.99] transition-all hover:border-gray-200 hover:bg-gray-50"
-				@click="navigateTo(localePath(`/asset-price-chart/${item.symbol.toLowerCase()}`))">
-				<!-- 縮寫 icon -->
-				<div
-					class="w-9 h-9 rounded-lg bg-[#FEF1EF] flex items-center justify-center text-sm font-[500] text-primary-600 shrink-0">
-					{{ item.symbol.slice(0, 2) }}
-				</div>
+		<!-- 單張卡片 + 分隔線：比逐列各自一張卡片安靜，與最新資訊同一種容器 -->
+		<ul class="divide-y divide-gray-100 overflow-hidden rounded-2xl border border-gray-100 bg-surface-card shadow-card-soft">
+			<li v-for="item in fetchedData" :key="item.symbol">
+				<NuxtLink
+					:to="localePath(`/asset-price-chart/${item.symbol.toLowerCase()}`)"
+					class="group flex items-center gap-3.5 px-4 py-3 outline-hidden transition-colors duration-200 hover:bg-gray-50 active:bg-gray-50 focus-visible:bg-gray-50 motion-reduce:transition-none"
+				>
+					<!-- 縮寫磚 -->
+					<span
+						class="grid size-11 shrink-0 place-items-center rounded-xl border border-primary/15 bg-primary/10 text-[11px] font-semibold tracking-wide text-primary-600"
+					>
+						{{ getBadge(item.symbol) }}
+					</span>
 
-				<!-- 名稱 -->
-				<div class="flex-1 min-w-0">
-					<div class="text-[14px] font-[500] truncate">{{ getSymbolName(item.symbol) }}</div>
-					<div class="text-sm text-gray-400 mt-0.5">{{ item.symbol }}</div>
-				</div>
+					<!-- 名稱 / 代號 -->
+					<span class="min-w-0 flex-1">
+						<span class="block truncate text-[14px] font-medium leading-tight">{{ getSymbolName(item.symbol) }}</span>
+						<span class="mt-1 block text-xs uppercase leading-none tracking-wider text-gray-400">
+							{{ item.symbol }}
+						</span>
+					</span>
 
-				<!-- 分隔線 -->
-				<div class="w-px h-7 bg-gray-100 shrink-0" />
+					<!-- 價格 -->
+					<span class="shrink-0 text-[15px] font-semibold tabular-nums">${{ parseFloat(item.price).toFixed(2) }}</span>
 
-				<!-- 價格 -->
-				<div class="text-right shrink-0">
-					<div class="text-[15px] font-[500] tabular-nums">
-						${{ parseFloat(item.price).toFixed(2) }}
-					</div>
-				</div>
+					<SvgIcon
+						name="icon_chevron_right"
+						size="1rem"
+						class="-mr-1 shrink-0 text-gray-300 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
+					/>
+				</NuxtLink>
 			</li>
 		</ul>
-	</div>
+	</section>
 </template>
 
 <script lang="ts" setup>
-const { $publicKV } = useNuxtApp()
-const localePath = useLocalePath()
+	const { $publicKV } = useNuxtApp()
+	const localePath = useLocalePath()
 
-const symbolNameMap: Record<string, string> = {
-	BTCUSD: $t('market_quotes.btcusd'),
-	DXY: $t('market_quotes.dxy'),
-	USOIL: $t('market_quotes.usoil'),
-	US10Y: $t('market_quotes.us10y'),
-	XAUUSD: $t('market_quotes.xauusd'),
-}
-
-const getSymbolName = (symbol: string): string => {
-	return symbolNameMap[symbol] || symbol
-}
-
-const {
-	data: fetchedData,
-	pending,
-	error,
-} = await useAsyncData(
-	'market-quotes-data',
-	async () => {
-		const res = await $publicKV.getQuotes()
-		return _get(res, 'data', [])
-	},
-	{
-		default: () => [],
+	const symbolNameMap: Record<string, string> = {
+		BTCUSD: $t('market_quotes.btcusd'),
+		DXY: $t('market_quotes.dxy'),
+		USOIL: $t('market_quotes.usoil'),
+		US10Y: $t('market_quotes.us10y'),
+		XAUUSD: $t('market_quotes.xauusd'),
 	}
-)
+
+	// 縮寫磚的字樣：取前兩碼會讓 USOIL / US10Y 都變成 US，所以逐檔指定
+	const symbolBadgeMap: Record<string, string> = {
+		BTCUSD: 'BTC',
+		DXY: 'DXY',
+		USOIL: 'OIL',
+		US10Y: '10Y',
+		XAUUSD: 'XAU',
+	}
+
+	const getSymbolName = (symbol: string): string => {
+		return symbolNameMap[symbol] || symbol
+	}
+
+	const getBadge = (symbol: string): string => {
+		return symbolBadgeMap[symbol] || symbol.slice(0, 3)
+	}
+
+	const {
+		data: fetchedData,
+		pending,
+		error,
+	} = await useAsyncData(
+		'market-quotes-data',
+		async () => {
+			const res = await $publicKV.getQuotes()
+			return _get(res, 'data', [])
+		},
+		{
+			default: () => [],
+		}
+	)
 </script>
