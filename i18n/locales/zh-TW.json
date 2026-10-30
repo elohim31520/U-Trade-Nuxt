@@ -66,6 +66,9 @@
 		"meta_description": "瀏覽完整的美股上市公司目錄，依代號搜尋並查看各股票的財務指標。"
 	},
 	"posts": {
+		"title": "投資文章",
+		"subtitle": "市場洞察與投資觀點",
+		"latest": "最新",
 		"meta_title": "投資文章與市場洞察 - UrTrade",
 		"meta_description": "閱讀美股投資、市場分析與投資組合策略相關的專業文章。",
 		"empty": "目前沒有文章"

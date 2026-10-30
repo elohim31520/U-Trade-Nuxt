@@ -66,6 +66,9 @@
 		"meta_description": "Browse the complete directory of US listed companies. Search by symbol and explore financial metrics for each stock."
 	},
 	"posts": {
+		"title": "Articles",
+		"subtitle": "Market insights and investment perspectives",
+		"latest": "Latest",
 		"meta_title": "Investment Articles & Insights - UrTrade",
 		"meta_description": "Read expert articles on US stock investing, market analysis, and portfolio strategies.",
 		"empty": "No articles yet"
