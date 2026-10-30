@@ -33,11 +33,7 @@
 			</ClientOnly>
 
 			<p class="mt-3 flex gap-2 border-t border-gray-100 pt-3 text-xs leading-relaxed text-gray-500">
-				<svg class="mt-[3px] shrink-0 text-gray-400" width="12" height="12" viewBox="0 0 16 16" fill="none"
-					stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-					<circle cx="8" cy="8" r="6.25" />
-					<path d="M8 7.25v3.5M8 5v.01" />
-				</svg>
+				<SvgIcon name="icon_info" size="12px" class="mt-[3px] shrink-0 text-gray-400" />
 				<span>{{ $t('momentum_chart.tips') }}</span>
 			</p>
 		</div>

@@ -19,9 +19,7 @@
 				class="seg-tab relative z-1 rounded-lg py-2" @click="activeTab = tab.value">
 				<span class="seg-label inline-flex items-center justify-center gap-1.5 text-sm font-medium tracking-wide"
 					:class="activeTab === tab.value ? tab.activeClass : 'text-gray-400'">
-					<svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true">
-						<path :d="tab.value === 0 ? 'M5 1.5 9 8.5H1z' : 'M5 8.5 1 1.5h8z'" />
-					</svg>
+					<SvgIcon name="icon_triangle" size="9px" :class="{ 'rotate-180': tab.value !== 0 }" />
 					{{ tab.label }}
 				</span>
 			</button>
@@ -63,9 +61,7 @@
 						class="inline-flex min-w-[4.75rem] shrink-0 items-center justify-center gap-1 rounded-xl px-2.5 py-1.5 text-[15px] font-semibold tabular-nums"
 						:class="isUp(stock) ? 'bg-emerald-50 text-emerald-600' : 'bg-red-50 text-red-500'"
 						:aria-label="`${isUp(stock) ? '+' : '-'}${formatChg(stock.dayChg)}%`">
-						<svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true">
-							<path :d="isUp(stock) ? 'M5 1.5 9 8.5H1z' : 'M5 8.5 1 1.5h8z'" />
-						</svg>
+						<SvgIcon name="icon_triangle" size="8px" :class="{ 'rotate-180': !isUp(stock) }" />
 						{{ formatChg(stock.dayChg) }}%
 					</span>
 				</NuxtLink>

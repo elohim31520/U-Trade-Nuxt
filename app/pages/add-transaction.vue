@@ -36,9 +36,7 @@
 							class="seg-label inline-flex items-center justify-center gap-1.5 text-sm font-medium tracking-wide"
 							:class="form.tradeType === side.value ? side.activeClass : 'text-gray-400'"
 						>
-							<svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true">
-								<path :d="side.value === 'buy' ? 'M5 1.5 9 8.5H1z' : 'M5 8.5 1 1.5h8z'" />
-							</svg>
+							<SvgIcon name="icon_triangle" size="9px" :class="{ 'rotate-180': side.value !== 'buy' }" />
 							{{ side.label }}
 						</span>
 					</button>
@@ -58,22 +56,7 @@
 							>
 								{{ form.stockSymbol.slice(0, 3) }}
 							</span>
-							<svg
-								v-else
-								class="text-gray-300"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.8"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								aria-hidden="true"
-							>
-								<path d="M3 17 9 11l4 4 8-8" />
-								<path d="M15 7h6v6" />
-							</svg>
+							<SvgIcon name="icon_trend_up" size="20px" class="text-gray-300" />
 							<img
 								v-if="showLogo"
 								:key="logoSymbol"
@@ -156,36 +139,9 @@
 						:class="boxClass('tradeDate')"
 						@click="openDatePicker"
 					>
-						<svg
-							class="shrink-0 text-gray-400"
-							width="18"
-							height="18"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.8"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							aria-hidden="true"
-						>
-							<rect x="3.5" y="5" width="17" height="15.5" rx="3" />
-							<path d="M3.5 10h17M8 3v4M16 3v4" />
-						</svg>
+						<SvgIcon name="icon_calendar" size="18px" class="shrink-0 text-gray-400" />
 						<span class="flex-1 text-base font-semibold tabular-nums">{{ form.tradeDate }}</span>
-						<svg
-							class="shrink-0 text-gray-300"
-							width="16"
-							height="16"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							aria-hidden="true"
-						>
-							<path d="m9 6 6 6-6 6" />
-						</svg>
+						<SvgIcon name="icon_chevron_right" size="16px" class="shrink-0 text-gray-300" />
 					</button>
 					<p v-if="errorOf('tradeDate')" class="field-error">{{ errorOf('tradeDate') }}</p>
 				</div>
@@ -210,18 +166,7 @@
 				class="row-in mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-linear-to-r from-accent to-accent-2 py-3.5 shadow-nav-home transition active:scale-[0.985] disabled:opacity-60"
 				:style="{ '--i': 1 }"
 			>
-				<svg
-					v-if="submitting"
-					class="size-4 animate-spin text-on-primary"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2.5"
-					stroke-linecap="round"
-					aria-hidden="true"
-				>
-					<path d="M12 3a9 9 0 1 0 9 9" />
-				</svg>
+				<SvgIcon v-if="submitting" name="icon_spinner" size="16px" class="animate-spin text-on-primary" />
 				<span class="text-[15px] font-semibold tracking-wide text-on-primary">{{ $t('transaction.record') }}</span>
 			</button>
 		</form>
@@ -233,21 +178,7 @@
 			:style="{ '--i': 2 }"
 		>
 			<span class="grid size-11 shrink-0 place-items-center rounded-xl bg-accent-2/15">
-				<svg
-					class="text-accent-2"
-					width="20"
-					height="20"
-					viewBox="0 0 20 20"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.6"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"
-				>
-					<path d="M10 13V4M10 4 6.5 7.5M10 4l3.5 3.5" />
-					<path d="M3 14v1.5A1.5 1.5 0 0 0 4.5 17h11a1.5 1.5 0 0 0 1.5-1.5V14" />
-				</svg>
+				<SvgIcon name="icon_upload" size="20px" class="text-accent-2" />
 			</span>
 			<span class="min-w-0 flex-1">
 				<span class="flex items-center gap-2">
@@ -258,20 +189,7 @@
 				</span>
 				<span class="mt-1.5 block text-xs leading-relaxed text-gray-400">{{ $t('transaction.img_upload_tips') }}</span>
 			</span>
-			<svg
-				class="shrink-0 text-gray-300 transition-transform duration-200 group-hover:translate-x-0.5"
-				width="16"
-				height="16"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
-			>
-				<path d="m9 6 6 6-6 6" />
-			</svg>
+			<SvgIcon name="icon_chevron_right" size="16px" class="shrink-0 text-gray-300 transition-transform duration-200 group-hover:translate-x-0.5" />
 		</NuxtLink>
 
 		<van-popup v-model:show="showDatePicker" position="bottom" round>

@@ -20,10 +20,7 @@
 				@click="select(name)">
 				<span class="theme-swatch h-3 w-4.5 shrink-0 rounded-xs" :data-theme-swatch="name" />
 				<span class="flex-1 truncate">{{ labelOf(name) }}</span>
-				<svg v-if="name === themeName" class="h-4 w-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none"
-					stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-					<path d="m5 12 4 4 10-10" />
-				</svg>
+				<SvgIcon v-if="name === themeName" name="icon_check" size="16px" class="shrink-0 text-primary" />
 			</button>
 		</div>
 	</div>

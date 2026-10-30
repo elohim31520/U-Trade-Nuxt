@@ -6,21 +6,7 @@
 
 		<!-- 隱私提醒：AI 會讀取截圖內容，上傳前先看到 -->
 		<aside class="row-in mb-4 flex items-start gap-3 rounded-2xl border border-accent-2/20 bg-accent-2/8 px-4 py-3.5">
-			<svg
-				class="mt-0.5 shrink-0 text-accent-2"
-				width="18"
-				height="18"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="1.8"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
-			>
-				<path d="M12 3 5 6v5.5c0 4.2 2.8 7.6 7 9 4.2-1.4 7-4.8 7-9V6l-7-3Z" />
-				<path d="m9 12 2.2 2.2L15.5 10" />
-			</svg>
+			<SvgIcon name="icon_shield_check" size="18px" class="mt-0.5 shrink-0 text-accent-2" />
 			<p class="min-w-0 flex-1 text-[13px] leading-relaxed text-gray-600">{{ $t('transaction.img_upload_tips') }}</p>
 			<span class="mt-0.5 rounded-md bg-accent-2/15 px-1.5 py-0.5 text-[10px] font-bold leading-none text-accent-2">
 				AI
@@ -45,21 +31,7 @@
 					<span
 						class="grid size-16 place-items-center rounded-2xl bg-linear-to-br from-accent to-accent-2 shadow-nav-home transition-transform duration-300 group-active:scale-95"
 					>
-						<svg
-							class="text-on-primary"
-							width="28"
-							height="28"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.8"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							aria-hidden="true"
-						>
-							<path d="M12 15.5V4.5M12 4.5 8 8.5M12 4.5l4 4" />
-							<path d="M4 15v2.5A2.5 2.5 0 0 0 6.5 20h11a2.5 2.5 0 0 0 2.5-2.5V15" />
-						</svg>
+						<SvgIcon name="icon_upload" size="28px" class="text-on-primary" />
 					</span>
 					<span class="mt-5 text-[15px] font-semibold">{{ $t('upload.click_to_upload') }}</span>
 					<span class="mt-1.5 text-xs text-gray-400">{{ $t('upload.size_limit', { size: '5MB' }) }}</span>
@@ -96,20 +68,7 @@
 
 				<div class="mt-4 flex items-center gap-3">
 					<span class="grid size-10 shrink-0 place-items-center rounded-xl bg-emerald-50">
-						<svg
-							class="text-emerald-600"
-							width="18"
-							height="18"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2.2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							aria-hidden="true"
-						>
-							<path d="m5 12.5 4.5 4.5L19 7.5" />
-						</svg>
+						<SvgIcon name="icon_check" size="18px" class="text-emerald-600" />
 					</span>
 					<span class="min-w-0 flex-1">
 						<span class="block truncate text-sm font-medium">{{ current.name }}</span>
@@ -124,19 +83,7 @@
 						:aria-label="$t('upload.remove')"
 						@click="onRemove"
 					>
-						<svg
-							class="text-gray-500"
-							width="14"
-							height="14"
-							viewBox="0 0 14 14"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.8"
-							stroke-linecap="round"
-							aria-hidden="true"
-						>
-							<path d="m3 3 8 8M11 3l-8 8" />
-						</svg>
+						<SvgIcon name="icon_close" size="14px" class="text-gray-500" />
 					</button>
 				</div>
 
@@ -152,18 +99,7 @@
 			:style="{ '--i': 2 }"
 			@click="handleSubmit"
 		>
-			<svg
-				v-if="uploading"
-				class="size-4 animate-spin text-on-primary"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2.5"
-				stroke-linecap="round"
-				aria-hidden="true"
-			>
-				<path d="M12 3a9 9 0 1 0 9 9" />
-			</svg>
+			<SvgIcon v-if="uploading" name="icon_spinner" size="16px" class="animate-spin text-on-primary" />
 			<span class="text-[15px] font-semibold tracking-wide text-on-primary">
 				{{ uploading ? $t('upload.uploading') : $t('upload.submit') }}
 			</span>

@@ -3,20 +3,7 @@
 		<header class="mb-5 px-1">
 			<h1 class="text-sm font-bold uppercase tracking-widest">{{ $t('records.transaction_records') }}</h1>
 			<p class="mt-1.5 flex items-center gap-1.5 text-xs text-gray-400">
-				<svg
-					class="shrink-0"
-					width="14"
-					height="14"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.8"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"
-				>
-					<path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4" />
-				</svg>
+				<SvgIcon name="icon_arrows_horizontal" size="14px" class="shrink-0" />
 				{{ $t('records.swipe_hint') }}
 			</p>
 		</header>
@@ -124,9 +111,7 @@
 												class="mt-1.5 inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 text-[11px] font-semibold"
 												:class="item.type === 'buy' ? 'bg-emerald-50 text-emerald-600' : 'bg-red-50 text-red-500'"
 											>
-												<svg width="7" height="7" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true">
-													<path :d="item.type === 'buy' ? 'M5 1.5 9 8.5H1z' : 'M5 8.5 1 1.5h8z'" />
-												</svg>
+												<SvgIcon name="icon_triangle" size="7px" :class="{ 'rotate-180': item.type !== 'buy' }" />
 												{{ item.type === 'buy' ? $t('records.buy') : $t('records.sell') }}
 											</span>
 										</span>
@@ -157,40 +142,13 @@
 									<div
 										class="flex h-full w-[76px] flex-col items-center justify-center gap-1 bg-linear-to-br from-accent to-accent-2 text-on-primary"
 									>
-										<svg
-											width="18"
-											height="18"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="1.8"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											aria-hidden="true"
-										>
-											<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4Z" />
-											<path d="m13.5 6.5 4 4" />
-										</svg>
+										<SvgIcon name="icon_pencil" size="18px" />
 										<span class="text-xs font-medium">{{ $t('records.update') }}</span>
 									</div>
 								</template>
 								<template #right>
 									<div class="flex h-full w-[76px] flex-col items-center justify-center gap-1 bg-red-500 text-white">
-										<svg
-											width="18"
-											height="18"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="1.8"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											aria-hidden="true"
-										>
-											<path
-												d="M4 7h16M10 11v6M14 11v6M6 7l1 12.5a1.5 1.5 0 0 0 1.5 1.5h7a1.5 1.5 0 0 0 1.5-1.5L18 7M9 7V4.5A1.5 1.5 0 0 1 10.5 3h3A1.5 1.5 0 0 1 15 4.5V7"
-											/>
-										</svg>
+										<SvgIcon name="icon_trash" size="18px" />
 										<span class="text-xs font-medium">{{ $t('records.delete') }}</span>
 									</div>
 								</template>

@@ -11,21 +11,7 @@
 			v-if="!dismissed[noticeKey]"
 			class="mb-4 flex items-start gap-3 rounded-2xl border border-primary/20 bg-primary/8 py-3.5 pl-4 pr-2"
 		>
-			<svg
-				class="mt-0.5 shrink-0 text-primary-600"
-				width="18"
-				height="18"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
-			>
-				<circle cx="12" cy="12" r="9.5" />
-				<path d="M12 11v5.5M12 7.6v.1" />
-			</svg>
+			<SvgIcon name="icon_info" size="18px" class="mt-0.5 shrink-0 text-primary-600" />
 			<div class="min-w-0 flex-1">
 				<p class="text-[13px] leading-relaxed text-gray-600">{{ noticeText }}</p>
 				<button
@@ -43,18 +29,7 @@
 				aria-label="close"
 				@click="dismissed[noticeKey] = true"
 			>
-				<svg
-					width="14"
-					height="14"
-					viewBox="0 0 14 14"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.8"
-					stroke-linecap="round"
-					aria-hidden="true"
-				>
-					<path d="m3 3 8 8M11 3l-8 8" />
-				</svg>
+				<SvgIcon name="icon_close" size="14px" />
 			</button>
 		</aside>
 
@@ -195,40 +170,13 @@
 							<div
 								class="flex h-full w-[76px] flex-col items-center justify-center gap-1 bg-linear-to-br from-accent to-accent-2 text-on-primary"
 							>
-								<svg
-									width="18"
-									height="18"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.8"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									aria-hidden="true"
-								>
-									<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4Z" />
-									<path d="m13.5 6.5 4 4" />
-								</svg>
+								<SvgIcon name="icon_pencil" size="18px" />
 								<span class="text-xs font-medium">{{ $t('portfolio.update') }}</span>
 							</div>
 						</template>
 						<template #right>
 							<div class="flex h-full w-[76px] flex-col items-center justify-center gap-1 bg-red-500 text-white">
-								<svg
-									width="18"
-									height="18"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.8"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									aria-hidden="true"
-								>
-									<path
-										d="M4 7h16M10 11v6M14 11v6M6 7l1 12.5a1.5 1.5 0 0 0 1.5 1.5h7a1.5 1.5 0 0 0 1.5-1.5L18 7M9 7V4.5A1.5 1.5 0 0 1 10.5 3h3A1.5 1.5 0 0 1 15 4.5V7"
-									/>
-								</svg>
+								<SvgIcon name="icon_trash" size="18px" />
 								<span class="text-xs font-medium">{{ $t('portfolio.delete') }}</span>
 							</div>
 						</template>
@@ -248,19 +196,7 @@
 				v-if="userStore.isLogin && rows.length"
 				class="mt-4 flex items-center justify-center gap-1.5 text-xs text-gray-400"
 			>
-				<svg
-					width="16"
-					height="16"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.8"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"
-				>
-					<path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4" />
-				</svg>
+				<SvgIcon name="icon_arrows_horizontal" size="16px" />
 				{{ $t('portfolio.swipe_hint') }}
 			</p>
 		</template>
