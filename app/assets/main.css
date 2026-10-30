@@ -41,6 +41,61 @@
 			background-color: var(--skeleton-to, #f3f4f6);
 		}
 	}
+
+	/* animate-row-in：區塊進場淡入上移；要依序進場就各自加 style="animation-delay: 70ms" */
+	--animate-row-in: row-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+	@keyframes row-in {
+		from {
+			opacity: 0;
+			transform: translateY(8px);
+		}
+	}
+
+	/* animate-pop / animate-shake：狀態圖成功時彈出、失敗時左右抖動，各播一次 */
+	--animate-pop: pop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+	@keyframes pop {
+		from {
+			opacity: 0;
+			transform: scale(0.6);
+		}
+	}
+
+	--animate-shake: shake 0.5s ease-in-out both;
+	@keyframes shake {
+		20%,
+		60% {
+			transform: translateX(-5px);
+		}
+		40%,
+		80% {
+			transform: translateX(5px);
+		}
+	}
+
+	/* animate-sweep：一段亮條由左掃到右（不定長度進度條、流動的連接線），平移距離是亮條自身寬度的倍數 */
+	--animate-sweep: sweep 1.5s ease-in-out infinite;
+	@keyframes sweep {
+		from {
+			transform: translateX(-100%);
+		}
+		to {
+			transform: translateX(250%);
+		}
+	}
+
+	/* animate-ring-pulse（循環）／animate-ring-burst（只播一次）：光圈由內向外擴散並淡出 */
+	--animate-ring-pulse: ring-out 2.4s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+	--animate-ring-burst: ring-out 0.9s cubic-bezier(0.2, 0.6, 0.3, 1) 0.1s both;
+	@keyframes ring-out {
+		from {
+			opacity: 0.5;
+			transform: scale(0.78);
+		}
+		to {
+			opacity: 0;
+			transform: scale(1.35);
+		}
+	}
 }
 
 /* color palette from <https://github.com/vuejs/theme> */
