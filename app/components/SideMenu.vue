@@ -7,7 +7,7 @@
 
 			<!-- 頂部：logo + 關閉 -->
 			<div class="relative flex h-14 shrink-0 items-center justify-between pr-3 pl-2">
-				<div class="app-logo h-10 w-22 bg-contain bg-center bg-no-repeat" style="background-image: url(/logo.webp); background-size: 130%" />
+				<div class="app-logo ml-2 h-7" />
 				<button type="button" :aria-label="$t('sidemenu.close')"
 					class="grid size-9 place-items-center rounded-full bg-gray-100 text-gray-500 transition active:scale-90"
 					@click="closeMenu">

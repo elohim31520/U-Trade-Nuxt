@@ -150,9 +150,7 @@
 	fill: var(--c-icon-muted);
 }
 
-/* /logo.webp 是白底不透明的點陣圖，沒有深色版。反相後白底變黑、再用 screen 讓黑色透出 header 底色；
- * hue-rotate(180deg) 把反相轉掉的色相轉回來（粉紅字還是粉紅）。 */
+/* logo 的深色版：淺色字、提亮的粉紅漸層，放在深色卡片底上才有足夠對比。 */
 :root[data-theme='arctic-cyan'] .app-logo {
-	filter: invert(1) hue-rotate(180deg);
-	mix-blend-mode: screen;
+	background-image: url(/logo-dark.svg);
 }

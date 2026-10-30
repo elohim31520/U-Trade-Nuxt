@@ -142,6 +142,15 @@
 	}
 }
 
+/* 品牌 logo（public/logo.svg）。暗色主題換成 logo-dark.svg，見 themes/arctic-cyan.css。
+ * 寬高比跟 svg 的 viewBox 一致，用的地方只要給高度（h-7 之類），寬度會自己算。 */
+@layer components {
+	.app-logo {
+		aspect-ratio: 370.5 / 113.44;
+		background: url(/logo.svg) center / 100% 100% no-repeat;
+	}
+}
+
 @utility flex-y-center {
 	@apply flex items-center;
 }

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -30.44 370.5 113.44" fill="none">
+	<title>urTrade</title>
+	<defs>
+		<linearGradient id="g" gradientUnits="userSpaceOnUse" x1="94" y1="80" x2="364.5" y2="-22.44">
+			<stop offset="0" stop-color="#D81B66"/>
+			<stop offset="1" stop-color="#FF4F93"/>
+		</linearGradient>
+	</defs>
+	<g stroke="#4B5563" stroke-width="8.5" stroke-linecap="butt" stroke-linejoin="round">
+		<path d="M4.25,26V57A18.5,18.5 0 0 0 41.5,57"/>
+		<path d="M41.5,26V80"/>
+		<path d="M58.25,26V80M58.25,52C58.25,38 66,30.25 82,30.25"/>
+	</g>
+	<g stroke="url(#g)" stroke-width="12.5" stroke-linecap="butt">
+		<path d="M94,6.25C182,6.25 204,5.25 230.19,-10.76"/>
+		<path d="M124,6.25V80"/>
+		<path d="M146.5,26V80M146.5,57C146.5,41 157.5,32.25 177.5,32.25"/>
+		<path d="M192.75,53a20.75,20.75 0 1 0 41.5,0a20.75,20.75 0 1 0 -41.5,0M234.25,26V80"/>
+		<path d="M254.75,53a20.75,20.75 0 1 0 41.5,0a20.75,20.75 0 1 0 -41.5,0M296.25,0V80"/>
+		<path d="M316.75,53H358.25A20.75,20.75 0 1 0 352.17,67.67"/>
+	</g>
+	<polygon points="249.31,-22.44 221.63,12.06 225.28,-7.75 205.99,-13.54" fill="url(#g)"/>
+</svg>
