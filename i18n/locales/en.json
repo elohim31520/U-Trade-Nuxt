@@ -274,7 +274,8 @@
 		"add_success": "Add successful"
 	},
 	"transaction_form_popup": {
-		"update_holding": "Update Holding"
+		"update_holding": "Update Holding",
+		"update_trade": "Update Transaction"
 	},
 	"see_more": {
 		"text": "See More"

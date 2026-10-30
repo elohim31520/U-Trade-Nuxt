@@ -208,16 +208,9 @@
 
 		<TransactionFormPopup
 			v-model="showUpdatePopup"
+			mode="holding"
 			:item="selectedItemForUpdate"
 			@submit-success="onUpdateSuccess"
-			:api-function="
-				(payload) =>
-					$bffApi.updatePortfolio({
-						stockSymbol: payload.stockSymbol,
-						quantity: payload.quantity,
-						averagePrice: payload.price,
-					})
-			"
 		/>
 	</div>
 </template>

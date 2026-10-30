@@ -161,9 +161,9 @@
 
 		<TransactionFormPopup
 			v-model="showUpdatePopup"
+			mode="trade"
 			:item="selectedItemForUpdate"
 			@submit-success="onUpdateSuccess"
-			:api-function="updateTransactionApi"
 		/>
 	</div>
 </template>
@@ -263,20 +263,6 @@
 
 	const onUpdateSuccess = () => {
 		waterfallRef.value?.refresh()
-	}
-
-	const updateTransactionApi = async (payload: any) => {
-		const item = selectedItemForUpdate.value
-		if (!item?.id) {
-			throw new Error('Missing transaction id')
-		}
-		return $bffApi.updateTrade(item.id, {
-			stockSymbol: payload.stockSymbol,
-			tradeType: payload.tradeType,
-			quantity: String(payload.quantity),
-			price: String(payload.price),
-			tradeDate: payload.tradeDate,
-		})
 	}
 </script>
 

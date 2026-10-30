@@ -274,7 +274,8 @@
 		"add_success": "新增成功"
 	},
 	"transaction_form_popup": {
-		"update_holding": "更新持股"
+		"update_holding": "更新持股",
+		"update_trade": "更新交易紀錄"
 	},
 	"see_more": {
 		"text": "點我看更多"
