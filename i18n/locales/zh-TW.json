@@ -304,7 +304,8 @@
 		"usoil": "美國原油",
 		"us10y": "美國10年期公債",
 		"xauusd": "黃金/美元",
-		"title": "市場最新報價"
+		"title": "市場最新報價",
+		"updated_at": "更新 {time}"
 	},
 	"com": {
 		"expand": "展開",
