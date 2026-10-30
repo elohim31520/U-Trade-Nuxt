@@ -266,6 +266,10 @@
 		"add_button": "Add",
 		"enter_balance_to_update": "Please enter the balance to update",
 		"update_success": "Update successful",
+		"update_subtitle": "Enter the new amount. It replaces your current balance",
+		"add_subtitle": "Set the USD cash you have available",
+		"current_balance": "Current balance",
+		"change": "Change",
 		"add_success": "Add successful"
 	},
 	"transaction_form_popup": {

@@ -266,6 +266,10 @@
 		"add_button": "新增",
 		"enter_balance_to_update": "請輸入要更新的餘額",
 		"update_success": "更新成功",
+		"update_subtitle": "輸入調整後的金額，儲存後會取代目前餘額",
+		"add_subtitle": "設定你目前可用的美金資金",
+		"current_balance": "目前餘額",
+		"change": "變動",
 		"add_success": "新增成功"
 	},
 	"transaction_form_popup": {
