@@ -66,7 +66,7 @@
 					</button>
 					<button type="button"
 						class="flex items-center justify-center rounded-xl border border-on-primary/25 bg-on-primary/15 py-2.5 backdrop-blur-sm transition active:scale-95"
-						@click="navigateTo(localePath('/change-password'))">
+						@click="showChangePasswordModal = true">
 						<span class="flex items-center gap-1.5 text-sm font-semibold">
 							<SvgIcon name="my_lock" size="1.125rem" />
 							{{ $t('my.change_password') }}
@@ -96,6 +96,7 @@
 		</section>
 
 		<UpdateUSDFormPopup v-model="showUpdateUSDFormPopup" />
+		<ChangePasswordModal v-model="showChangePasswordModal" />
 	</div>
 </template>
 
@@ -106,7 +107,6 @@ import { usePortfolioStore } from '@/stores/portfolio'
 import { useUserStore } from '@/stores/user'
 
 const { t } = useI18n()
-const localePath = useLocalePath()
 const { open: openAuthModal } = useAuthModal()
 
 const balanceStore = useBalanceStore()
@@ -147,6 +147,7 @@ const portfolioPercentage = computed(() => {
 })
 
 const showUpdateUSDFormPopup = ref(false)
+const showChangePasswordModal = ref(false)
 
 onMounted(() => {
 	if (userStore.isLogin) {

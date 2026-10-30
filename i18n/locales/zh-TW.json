@@ -181,6 +181,7 @@
 	},
 	"change_password": {
 		"title": "修改密碼",
+		"subtitle": "修改後需要重新登入",
 		"old_password": "舊密碼",
 		"enter_old_password": "請輸入舊密碼",
 		"fill_old_password": "請填寫舊密碼",

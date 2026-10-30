@@ -6,7 +6,6 @@ Allow: /companies
 
 Disallow: /login
 Disallow: /register/
-Disallow: /change-password
 Disallow: /svg
 Disallow: /records
 Disallow: /404

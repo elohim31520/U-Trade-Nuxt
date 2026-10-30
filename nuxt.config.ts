@@ -125,7 +125,6 @@ export default defineNuxtConfig({
 		// 純 CSR 路由(不需要 SEO,登入態相關頁面)
 		const csrRoutes = [
 			'/add-transaction',
-			'/change-password',
 			'/m7',
 			'/my',
 			'/portfolio',
