@@ -1,7 +1,7 @@
 <template>
 	<van-list ref="listRef" v-model:loading="loading" :finished="finished" :finished-text="finished ? finishedText : ''"
 		:loading-text="loadingText" :immediate-check="immediateCheck" @load="onLoad">
-		<slot :list="list"></slot>
+		<slot :list="list" :loading="loading" :finished="finished"></slot>
 	</van-list>
 </template>
 

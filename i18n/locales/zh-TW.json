@@ -172,7 +172,12 @@
 		"update": "更新",
 		"delete": "刪除",
 		"confirm_title": "確認",
-		"confirm_delete_message": "確定要刪除嗎？"
+		"confirm_delete_message": "確定要刪除嗎？",
+		"date": "日期",
+		"total": "總額",
+		"swipe_hint": "向左或向右滑動紀錄，可更新或刪除",
+		"empty": "還沒有任何交易紀錄",
+		"no_more": "已經到底了"
 	},
 	"change_password": {
 		"title": "修改密碼",

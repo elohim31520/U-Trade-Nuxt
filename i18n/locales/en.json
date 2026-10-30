@@ -172,7 +172,12 @@
 		"update": "Update",
 		"delete": "Delete",
 		"confirm_title": "Confirm",
-		"confirm_delete_message": "Are you sure you want to delete?"
+		"confirm_delete_message": "Are you sure you want to delete?",
+		"date": "Date",
+		"total": "Total",
+		"swipe_hint": "Swipe a record left or right to update or delete",
+		"empty": "No transactions yet",
+		"no_more": "You've reached the end"
 	},
 	"change_password": {
 		"title": "Change Password",
