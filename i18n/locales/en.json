@@ -62,6 +62,10 @@
 	},
 	"companies": {
 		"title": "Companies",
+		"subtitle": "Browse US-listed companies and explore their financial metrics",
+		"search_placeholder": "Search symbol or company name",
+		"clear": "Clear",
+		"empty": "No matching companies",
 		"meta_title": "US Stock Company Directory - UrTrade",
 		"meta_description": "Browse the complete directory of US listed companies. Search by symbol and explore financial metrics for each stock."
 	},
@@ -120,7 +124,7 @@
 		"add_record": "Add Record",
 		"my_records": "My Records",
 		"my_portfolio": "My Portfolio",
-		"stock_list": "Stock List",
+		"companies": "Companies",
 		"m7": "Magnificent 7",
 		"market_indicators": "Market Indicators",
 		"todays_volatility": "Today's Volatility",

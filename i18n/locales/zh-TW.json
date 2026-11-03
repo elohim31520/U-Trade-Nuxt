@@ -62,6 +62,10 @@
 	},
 	"companies": {
 		"title": "公司列表",
+		"subtitle": "完整的美股上市公司目錄，點選即可查看財務指標",
+		"search_placeholder": "搜尋代號或公司名稱",
+		"clear": "清除",
+		"empty": "找不到符合的公司",
 		"meta_title": "美股公司列表 - UrTrade",
 		"meta_description": "瀏覽完整的美股上市公司目錄，依代號搜尋並查看各股票的財務指標。"
 	},
@@ -120,7 +124,7 @@
 		"add_record": "新增紀錄",
 		"my_records": "我的紀錄",
 		"my_portfolio": "我的投資組合",
-		"stock_list": "股票清單",
+		"companies": "公司列表",
 		"m7": "七巨頭",
 		"market_indicators": "市場指標",
 		"todays_volatility": "今日股價變動",

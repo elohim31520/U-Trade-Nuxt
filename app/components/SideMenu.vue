@@ -149,7 +149,7 @@ const menuGroups: { title: string; items: MenuItem[] }[] = [
 			{ to: '/', icon: 'footer_home', text: 'sidemenu.home' },
 			{ to: '/market-summary', icon: 'menu_report', text: 'market.marketReport' },
 			{ to: '/news', icon: 'footer_info', text: 'news.title' },
-			{ to: '/companies', icon: 'menu_stocks', text: 'sidemenu.stock_list' },
+			{ to: '/companies', icon: 'menu_stocks', text: 'sidemenu.companies' },
 			{ to: '/m7', icon: 'menu_m7', text: 'sidemenu.m7' },
 			{ to: '/market-metrics', icon: 'menu_metrics', text: 'sidemenu.market_indicators' },
 			{ to: '/volatile-stock', icon: 'menu_volatility', text: 'sidemenu.todays_volatility' },
