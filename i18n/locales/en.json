@@ -411,14 +411,20 @@
 	"volatile_stock": {
 		"meta_title": "Top Volatile US Stocks Today - UrTrade",
 		"meta_description": "Track today's most volatile US stocks with real-time daily change percentages. Filter gainers and losers.",
+		"title": "Today's Volatility",
+		"subtitle": "US stocks ranked by today's % change",
+		"up": "Gainers",
+		"down": "Losers",
 		"sort": {
-			"asc": "↑ ASC",
-			"desc": "↓ DESC"
+			"asc": "Low to high",
+			"desc": "High to low"
 		},
 		"filter": {
-			"positive": "Gainers Only 📈",
-			"negative": "Losers Only 📉"
-		}
+			"all": "All",
+			"positive": "Gainers",
+			"negative": "Losers"
+		},
+		"empty": "No matching stocks"
 	},
 	"asset_price_chart": {
 		"meta_title": "{label} Live Price Chart - UrTrade",

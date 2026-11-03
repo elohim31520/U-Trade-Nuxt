@@ -411,14 +411,20 @@
 	"volatile_stock": {
 		"meta_title": "今日波動最大美股 - UrTrade",
 		"meta_description": "追蹤今日波動最大的美股，即時查看漲跌幅百分比，篩選上漲與下跌股票。",
+		"title": "今日股價變動",
+		"subtitle": "依今日漲跌幅排序的美股標的",
+		"up": "上漲",
+		"down": "下跌",
 		"sort": {
-			"asc": "↑ 正序",
-			"desc": "↓ 倒序"
+			"asc": "由低到高",
+			"desc": "由高到低"
 		},
 		"filter": {
-			"positive": "僅正值 📈",
-			"negative": "僅負值 📉"
-		}
+			"all": "全部",
+			"positive": "正值",
+			"negative": "負值"
+		},
+		"empty": "目前沒有符合的標的"
 	},
 	"asset_price_chart": {
 		"meta_title": "{label} 即時走勢圖 - UrTrade",
