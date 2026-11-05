@@ -44,6 +44,8 @@
 </template>
 
 <script setup lang="ts">
+	import { HOT_COMPANY_LIST } from '@/constants/hotCompanies'
+
 	const localePath = useLocalePath()
 
 	defineProps<{
@@ -51,32 +53,8 @@
 		moreTo?: string
 	}>()
 
-	const companies = [
-		// --- 熱門建議標的 ---
-		{ id: 'spcx', name: 'SpaceX', useLogoPath: true },
-		{ id: 'sndk', name: 'Sandisk', useLogoPath: true },
-		{ id: 'mu', name: 'Micron', useLogoPath: true },
-		{ id: 'cohr', name: 'Coherent', useLogoPath: true },
-		{ id: 'lite', name: 'Lumentum', useLogoPath: true },
-		{ id: 'tsm', name: 'TSMC', useLogoPath: true },
-		{ id: 'amd', name: 'AMD', useLogoPath: true },
-		{ id: 'mstr', name: 'Strategy', useLogoPath: true },
-		{ id: 'hood', name: 'Robinhood', useLogoPath: true },
-		{ id: 'vst', name: 'Vistra', useLogoPath: true },
-		{ id: 'app', name: 'AppLovin', useLogoPath: true },
-		{ id: 'sofi', name: 'SoFi', useLogoPath: true },
-		{ id: 'avgo', name: 'Broadcom', useLogoPath: true },
-		{ id: 'crwv', name: 'CoreWeave', useLogoPath: true },
-		{ id: 'oklo', name: 'Oklo', useLogoPath: true },
-		{ id: 'tsla', name: 'Tesla' },
-		{ id: 'nvda', name: 'NVIDIA' },
-		{ id: 'pltr', name: 'Palantir' },
-		{ id: 'amzn', name: 'Amazon' },
-		{ id: 'goog', name: 'Alphabet' },
-		{ id: 'meta', name: 'Meta' },
-		{ id: 'msft', name: 'Microsoft' },
-		{ id: 'aapl', name: 'Apple', useLogoPath: true },
-	]
+	// 清單與 company-metrics 的免登入名單共用同一份
+	const companies = HOT_COMPANY_LIST
 </script>
 
 <style scoped>

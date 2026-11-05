@@ -10,6 +10,7 @@ import type { BalanceInfo } from '~/types/balance'
 import { createFetchHandlers } from '~/utils/fetchHandlers'
 import type { MomentumResult } from '~/types/marketSnapshots'
 import type { PortfolioItem, NewPortfolio } from '~/types/portfolio'
+import type { StockMetrics } from '~/types/stockMetrics'
 import type { AnalyzeScreenshotRes } from '~/types/trade'
 
 // baseURL 指向 Nuxt server routes（/api/...），走同源請求，cookie 自動帶入。
@@ -41,6 +42,11 @@ export default defineNuxtPlugin((nuxtApp) => {
                 /** days 非 1 / 3 時需要 auth，走 BFF；1 / 3 天請走 publicKv */
                 getMomentumByRange: (days: number) =>
                     client<ResponseData<MomentumResult[]>>(`/market/momentum/range/${days}`),
+
+                // ── company-metrics（非熱門公司需 auth）──────────────────
+                /** 熱門公司請走 publicKv；其餘公司要登入，由 BFF 帶 cookie token 給 KV worker */
+                getStatementBySymbol: (symbol: string, days: number) =>
+                    client<ResponseData<StockMetrics>>(`/company-metrics/${symbol}`, { query: { days } }),
 
                 // ── portfolio ─────────────────────────────────────────────
                 getPortfolios: () =>
