@@ -36,6 +36,10 @@ export function useSvgIconLoader(props: SvgIconProps, symbolId: ComputedRef<stri
 			if (svgElement.getAttribute('viewBox')) {
 				symbolDom.setAttribute('viewBox', svgElement.getAttribute('viewBox')!)
 			}
+			// 要拉伸填滿容器的圖（例如示意用的假圖表）在 svg 上寫 preserveAspectRatio="none"，symbol 也要帶過去才有效
+			if (svgElement.getAttribute('preserveAspectRatio')) {
+				symbolDom.setAttribute('preserveAspectRatio', svgElement.getAttribute('preserveAspectRatio')!)
+			}
 			while (svgElement.firstChild) {
 				symbolDom.appendChild(svgElement.firstChild)
 			}

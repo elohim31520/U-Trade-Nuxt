@@ -1,0 +1,5 @@
+<svg width="320" height="192" viewBox="0 0 320 192" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 150C40 142 70 120 110 128S180 100 220 106S290 84 320 78" stroke="currentColor" stroke-opacity="0.3" stroke-width="3" stroke-linecap="round"/>
+<path d="M0 120C30 92 52 112 84 82S134 62 164 88S224 40 254 56S304 30 320 38V192H0Z" fill="currentColor" fill-opacity="0.12"/>
+<path d="M0 120C30 92 52 112 84 82S134 62 164 88S224 40 254 56S304 30 320 38" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+</svg>
