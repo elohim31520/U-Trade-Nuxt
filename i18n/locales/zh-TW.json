@@ -243,6 +243,7 @@
 		"password_mismatch": "兩次輸入的密碼不一致",
 		"register": "註冊",
 		"register_success": "註冊成功",
+		"register_success_please_login": "註冊成功，請登入",
 		"register_fail": "註冊失敗",
 		"has_account": "已經有帳號？"
 	},

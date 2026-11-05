@@ -27,11 +27,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useUserStore } from '@/stores/user'
 
 const { t } = useI18n()
-const userStore = useUserStore()
-const { close } = useAuthModal()
+const { open } = useAuthModal()
 
 const username = ref('')
 const email = ref('')
@@ -50,9 +48,9 @@ const onSubmit = async (values: { username: string; email: string; password: str
 		})
 
 		if (res.success) {
-			await userStore.fetchMe()
-			showToast(t('register.register_success'))
-			close()
+			// 註冊不等於登入：切到登入分頁，讓使用者自己輸入密碼登入
+			showToast(t('register.register_success_please_login'))
+			open('login')
 		} else {
 			showToast(res.message || t('register.register_fail'))
 		}

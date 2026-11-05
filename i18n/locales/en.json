@@ -243,6 +243,7 @@
 		"password_mismatch": "The two passwords do not match",
 		"register": "Register",
 		"register_success": "Registration successful",
+		"register_success_please_login": "Registration successful, please log in",
 		"register_fail": "Registration failed",
 		"has_account": "Already have an account?"
 	},
