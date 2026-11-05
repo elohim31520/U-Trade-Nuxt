@@ -1,7 +1,7 @@
 <template>
 	<div class="p-4 space-y-4">
 		<div class="mb-[3.75rem]">
-			<TradingviewGadget :symbol="symbol" :symbol-prefix="symbolPrefix" :disabled="uiStore.isMenuShown" />
+			<TradingviewGadget :symbol="tvSymbol" :symbol-prefix="symbolPrefix" :disabled="uiStore.isMenuShown" />
 		</div>
 
 		<!-- 非熱門公司且未登入：只留上面的 K 線，指標區改成登入提示 -->
@@ -94,9 +94,9 @@
 	import { useRoute } from 'vue-router'
 	import { useUIStore } from '@/stores/ui'
 	import { HOT_COMPANIES } from '@/constants/hotCompanies'
-	import { NYSE } from '@/constants/symbolPrefix'
+	import { NYSE, PREFIX_OVERRIDE } from '@/constants/symbolPrefix'
 	import { useUserStore } from '@/stores/user'
-	import { toUpper as _toUpper, upperCase as _upperCase, reverse as _reverse, get as _get } from 'lodash-es'
+	import { toUpper as _toUpper, reverse as _reverse, get as _get } from 'lodash-es'
 	import type { StockMetrics } from '@/types/stockMetrics'
 
 	const uiStore = useUIStore()
@@ -113,11 +113,13 @@
 		return symbol.value?.toUpperCase()
 	})
 
-	// TradingView 的 K 線要帶交易所前綴，非 NYSE 名單一律當 NASDAQ
-	const symbolPrefix = computed(() => {
-		if (NYSE.includes(_upperCase(symbol.value))) return 'NYSE'
-		return 'NASDAQ'
-	})
+	// TradingView 的代號：全大寫，股別用點（API 給 BRK-B，TradingView 要 BRK.B）
+	const tvSymbol = computed(() => symbol.value.toUpperCase().replace(/-/g, '.'))
+
+	// TradingView 的 K 線要帶交易所前綴：特例 > NYSE 名單 > 其餘一律當 NASDAQ
+	const symbolPrefix = computed(
+		() => PREFIX_OVERRIDE[tvSymbol.value] ?? (NYSE.includes(tvSymbol.value) ? 'NYSE' : 'NASDAQ')
+	)
 
 	const showNotice = ref(true)
 
