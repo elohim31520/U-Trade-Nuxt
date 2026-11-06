@@ -233,7 +233,7 @@
 	const metrics = ref<StockMetrics[]>([])
 	const status = ref<'idle' | 'loading' | 'ready' | 'error'>('idle')
 
-	// 熱門公司（探索熱門公司那 23 家）免登入可看指標；其餘公司只開放 K 線，指標要登入
+	// 熱門公司（探索熱門公司那幾家）免登入可看指標；其餘公司只開放 K 線，指標要登入
 	const isHotCompany = computed(() => HOT_COMPANIES.includes(_toUpper(symbol.value)))
 	const canViewMetrics = computed(() => isHotCompany.value || userStore.isLogin)
 
