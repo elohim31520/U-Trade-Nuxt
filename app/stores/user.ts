@@ -6,9 +6,11 @@ export const useUserStore = defineStore('user', () => {
 	const { isAuthenticated } = useAuth()
 	const isLogin = computed(() => isAuthenticated.value)
 
-	const username = useStorage('username', '')
-	const userPicture = useStorage('g_user_picture', '')
-	const googleUserName = useStorage('g_user_name', '')
+	// writeDefaults: false → 沒資料時不會把空字串寫回 localStorage，登出清掉後就真的沒有殘留的 key
+	const profileStorageOptions = { writeDefaults: false }
+	const username = useStorage('username', '', undefined, profileStorageOptions)
+	const userPicture = useStorage('g_user_picture', '', undefined, profileStorageOptions)
+	const googleUserName = useStorage('g_user_name', '', undefined, profileStorageOptions)
 
 	const userInfo = computed(() => ({
 		name: googleUserName.value || username.value,
@@ -36,12 +38,17 @@ export const useUserStore = defineStore('user', () => {
 		username.value = name
 	}
 
+	// 設成 null 會把 localStorage 的 key 整個移除（設 '' 只會留下空字串）
+	function clearProfile() {
+		username.value = null
+		userPicture.value = null
+		googleUserName.value = null
+	}
+
 	async function logout() {
 		await $fetch('/api/user/logout', { method: 'POST' })
 		isAuthenticated.value = false
-		username.value = ''
-		userPicture.value = ''
-		googleUserName.value = ''
+		clearProfile()
 	}
 
 	return {

@@ -54,8 +54,8 @@ export function createFetchHandlers(options: CreateHandlersOptions = {}) {
             if (handle401 && response.status === 401) {
                 const redirect = () => {
                     if (import.meta.client) {
-                        const { logout } = useAuth()
-                        logout()
+                        // 走 store 的 logout，才會連同持久化的 user profile 一起清掉
+                        useUserStore().logout()
                     } else {
                         navigateTo({ path: useLocalePath()('/'), query: { auth: 'login' } })
                     }
