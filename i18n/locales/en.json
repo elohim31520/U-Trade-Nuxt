@@ -153,6 +153,7 @@
 		"companies": "Companies",
 		"m7": "Magnificent 7",
 		"market_indicators": "Market Indicators",
+		"heatmap": "Heatmaps",
 		"todays_volatility": "Today's Volatility",
 		"login": "Login",
 		"register": "Register",
@@ -460,6 +461,17 @@
 		"loadFailed": "Failed to load data, please try again later",
 		"not_found_title": "Page Not Found - UrTrade",
 		"not_found_description": "The page you are looking for does not exist."
+	},
+	"heatmap": {
+		"meta_title": "Market Heatmaps: S&P 500 & Crypto - UrTrade",
+		"meta_description": "See the S&P 500 and the crypto market at a glance with live heatmaps sized by market cap and colored by daily change.",
+		"title": "Heatmaps",
+		"subtitle": "Block size is market cap, color is price change",
+		"sp500_title": "S&P 500 Heatmap",
+		"sp500_subtitle": "Today's moves by sector and market cap",
+		"crypto_title": "Crypto Heatmap",
+		"crypto_subtitle": "24-hour moves by market cap",
+		"source": "Heatmaps powered by"
 	},
 	"volatile_stock": {
 		"meta_title": "Top Volatile US Stocks Today - UrTrade",
