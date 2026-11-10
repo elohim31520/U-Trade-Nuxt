@@ -1,6 +1,7 @@
 import { computed } from 'vue'
 import { usePortfolioStore } from '@/stores/portfolio'
 import type { PortfolioItem } from '@/types/portfolio'
+import { calcHolding, calcSummary, type HoldingMetrics } from '~/utils/portfolio'
 import { useTheme, type ThemeName } from './useTheme'
 
 type GradientPair = [from: string, to: string]
@@ -31,50 +32,46 @@ const ALLOCATION_COLOR: Record<ThemeName, GradientPair[]> = {
 	],
 }
 
-export interface AllocationRow {
+export interface AllocationRow extends HoldingMetrics {
 	item: PortfolioItem
 	symbol: string
-	/** 持倉價值 = 數量 × 均價 */
-	value: number
-	/** 佔整體持倉價值的百分比（0–100） */
+	/** 佔整體市值的百分比（0–100）；沒有報價的持股以成本計 */
 	share: number
 	colors: GradientPair
 	/** 給 CSS background 用的斜向漸層 */
 	gradient: string
 }
 
-/** 把持股依價值由大到小排序，並算出佔比與配色。 */
+/** 把持股依市值由大到小排序，並算出損益、佔比與配色。 */
 export function usePortfolioAllocation() {
 	const portfolioStore = usePortfolioStore()
 	const { themeName } = useTheme()
 
-	const total = computed(() =>
-		portfolioStore.portfolioData.reduce(
-			(sum, item) => sum + Number(item.quantity || 0) * Number(item.averagePrice || 0),
-			0,
-		),
+	const holdings = computed(() =>
+		portfolioStore.portfolioData.map((item) => ({
+			item,
+			...calcHolding(item.quantity, item.averagePrice, portfolioStore.prices[item.stockSymbol.toUpperCase()]),
+		})),
 	)
+
+	const summary = computed(() => calcSummary(holdings.value))
+	const total = computed(() => summary.value.totalMarketValue)
 
 	const rows = computed<AllocationRow[]>(() => {
 		const palette = ALLOCATION_COLOR[themeName.value]
-		return portfolioStore.portfolioData
-			.map((item) => ({
-				item,
-				value: Number(item.quantity || 0) * Number(item.averagePrice || 0),
-			}))
-			.sort((a, b) => b.value - a.value)
-			.map(({ item, value }, index) => {
+		return [...holdings.value]
+			.sort((a, b) => b.marketValue - a.marketValue)
+			.map((holding, index) => {
 				const colors = palette[index % palette.length]!
 				return {
-					item,
-					symbol: item.stockSymbol,
-					value,
-					share: total.value > 0 ? (value / total.value) * 100 : 0,
+					...holding,
+					symbol: holding.item.stockSymbol,
+					share: total.value > 0 ? (holding.marketValue / total.value) * 100 : 0,
 					colors,
 					gradient: `linear-gradient(135deg, ${colors[0]}, ${colors[1]})`,
 				}
 			})
 	})
 
-	return { rows, total }
+	return { rows, total, summary }
 }

@@ -48,6 +48,27 @@
 				<span class="text-lg font-medium text-gray-400">.{{ totalParts.dec }}</span>
 			</p>
 
+			<!-- 成本與未實現損益；沒有任何報價時損益以 — 表示 -->
+			<dl class="mt-4 grid grid-cols-2 border-t border-gray-100 pt-3">
+				<div>
+					<dt class="text-xs text-gray-400">{{ $t('portfolio.cost') }}</dt>
+					<dd class="mt-0.5 text-sm font-medium tabular-nums">${{ formatMoney(summary.totalCost) }}</dd>
+				</div>
+				<div class="border-l border-gray-100 pl-4">
+					<dt class="text-xs text-gray-400">{{ $t('portfolio.unrealized_pnl') }}</dt>
+					<template v-if="summary.unrealizedProfitLoss !== null">
+						<dd class="mt-0.5 flex items-center gap-1.5 text-sm font-semibold tabular-nums" :class="toneText(summary.unrealizedProfitLoss)">
+							<SvgIcon name="icon_triangle" size="8px" :class="{ 'rotate-180': summary.unrealizedProfitLoss < 0 }" />
+							{{ formatSigned(summary.unrealizedProfitLoss) }}
+						</dd>
+						<dd v-if="summary.unrealizedProfitLossPercent !== null" class="mt-0.5 text-xs tabular-nums" :class="toneText(summary.unrealizedProfitLoss)">
+							{{ formatPct(summary.unrealizedProfitLossPercent) }}
+						</dd>
+					</template>
+					<dd v-else class="mt-0.5 text-sm font-medium text-gray-400">—</dd>
+				</div>
+			</dl>
+
 			<div class="mt-5 flex h-2 gap-0.5 overflow-hidden rounded-full" aria-hidden="true">
 				<span
 					v-for="row in rows"
@@ -63,6 +84,10 @@
 					<span class="tabular-nums">{{ row.share.toFixed(1) }}%</span>
 				</li>
 			</ul>
+
+			<p class="mt-4 text-[11px] leading-relaxed text-gray-400">
+				{{ summary.unpricedHoldingCount ? `${$t('portfolio.unpriced_note')} ` : '' }}{{ $t('portfolio.quote_note') }}
+			</p>
 		</section>
 
 		<!-- 分段切換：滑動的底板跟著 active 項目走 -->
@@ -142,25 +167,48 @@
 
 								<span class="shrink-0 text-right">
 									<span class="block text-[15px] font-semibold leading-tight tabular-nums">
-										${{ formatMoney(row.value) }}
+										${{ formatMoney(row.marketValue) }}
+									</span>
+									<!-- 報酬率；沒有報價的標的顯示灰色「無報價」 -->
+									<span
+										v-if="row.unrealizedProfitLossPercent !== null"
+										class="mt-1.5 inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 text-[11px] font-semibold tabular-nums"
+										:class="toneChip(row.unrealizedProfitLoss)"
+									>
+										<SvgIcon name="icon_triangle" size="7px" :class="{ 'rotate-180': (row.unrealizedProfitLoss ?? 0) < 0 }" />
+										{{ Math.abs(row.unrealizedProfitLossPercent).toFixed(2) }}%
 									</span>
 									<span
-										class="mt-1.5 inline-block rounded-md bg-gray-50 px-1.5 py-0.5 text-[11px] font-semibold tabular-nums text-gray-500"
+										v-else
+										class="mt-1.5 inline-block rounded-md bg-gray-50 px-1.5 py-0.5 text-[11px] font-semibold text-gray-400"
 									>
-										{{ row.share.toFixed(1) }}%
+										{{ $t('portfolio.no_quote') }}
 									</span>
 								</span>
 							</div>
 
-							<dl class="mt-3.5 grid grid-cols-2 border-t border-gray-100 pt-3">
+							<!-- 均價與現價並排方便比較；持股佔比看上方總覽的圖例 -->
+							<dl class="mt-3.5 grid grid-cols-2 gap-y-3 border-t border-gray-100 pt-3">
+								<div>
+									<dt class="text-xs text-gray-400">{{ $t('portfolio.average_price') }}</dt>
+									<dd class="mt-0.5 text-sm font-medium tabular-nums">
+										${{ formatMoney(Number(row.item.averagePrice || 0)) }}
+									</dd>
+								</div>
+								<div class="border-l border-gray-100 pl-4">
+									<dt class="text-xs text-gray-400">{{ $t('portfolio.current_price') }}</dt>
+									<dd class="mt-0.5 text-sm font-medium tabular-nums" :class="{ 'text-gray-400': row.price === null }">
+										{{ row.price === null ? '—' : `$${formatMoney(row.price)}` }}
+									</dd>
+								</div>
 								<div>
 									<dt class="text-xs text-gray-400">{{ $t('portfolio.quantity') }}</dt>
 									<dd class="mt-0.5 text-sm font-medium tabular-nums">{{ formatQuantity(row.item.quantity) }}</dd>
 								</div>
 								<div class="border-l border-gray-100 pl-4">
-									<dt class="text-xs text-gray-400">{{ $t('portfolio.average_price') }}</dt>
-									<dd class="mt-0.5 text-sm font-medium tabular-nums">
-										${{ formatMoney(Number(row.item.averagePrice || 0)) }}
+									<dt class="text-xs text-gray-400">{{ $t('portfolio.unrealized_pnl') }}</dt>
+									<dd class="mt-0.5 text-sm font-semibold tabular-nums" :class="toneText(row.unrealizedProfitLoss)">
+										{{ row.unrealizedProfitLoss === null ? '—' : formatSigned(row.unrealizedProfitLoss) }}
 									</dd>
 								</div>
 							</dl>
@@ -230,7 +278,7 @@
 	const userStore = useUserStore()
 	const { $bffApi } = useNuxtApp()
 	const { open: openAuthModal } = useAuthModal()
-	const { rows, total } = usePortfolioAllocation()
+	const { rows, total, summary } = usePortfolioAllocation()
 
 	// 左右滑出的操作區寬度（px）
 	const SWIPE_WIDTH = 76
@@ -262,6 +310,13 @@
 
 	const formatQuantity = (quantity?: number) =>
 		Number(quantity || 0).toLocaleString('en-US', { maximumFractionDigits: 8 })
+
+	// 漲跌色與全站一致：綠漲紅跌；0 視為漲；沒有報價（null）是灰色
+	const toneText = (n: number | null) => (n === null ? 'text-gray-400' : n >= 0 ? 'text-emerald-600' : 'text-red-500')
+	const toneChip = (n: number | null) =>
+		n === null ? 'bg-gray-50 text-gray-400' : n >= 0 ? 'bg-emerald-50 text-emerald-600' : 'bg-red-50 text-red-500'
+	const formatSigned = (n: number) => `${n >= 0 ? '+' : '-'}$${formatMoney(Math.abs(n))}`
+	const formatPct = (n: number) => `${n >= 0 ? '+' : '-'}${Math.abs(n).toFixed(2)}%`
 
 	// logo 載入失敗的 symbol 退回縮寫圖磚；loaded 讓圖片載入完成才淡入，避免閃一下空白
 	const failed = reactive<Record<string, boolean>>({})
@@ -310,6 +365,7 @@
 		} else {
 			portfolioStore.fetchMockPortfolio()
 		}
+		portfolioStore.fetchPrices()
 	}
 
 	onMounted(() => {

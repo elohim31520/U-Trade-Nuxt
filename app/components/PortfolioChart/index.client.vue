@@ -25,7 +25,7 @@
 				<span class="size-2.5 shrink-0 rounded-full" :style="{ background: row.gradient }" aria-hidden="true" />
 				<span class="min-w-0 flex-1 truncate text-sm font-medium">{{ row.symbol }}</span>
 				<span class="w-12 text-right text-xs tabular-nums text-gray-400">{{ row.share.toFixed(1) }}%</span>
-				<span class="min-w-[8.5rem] text-right text-sm font-semibold tabular-nums">${{ formatMoney(row.value) }}</span>
+				<span class="min-w-[8.5rem] text-right text-sm font-semibold tabular-nums">${{ formatMoney(row.marketValue) }}</span>
 			</li>
 		</ul>
 	</div>
@@ -72,7 +72,7 @@
 				itemStyle: { borderRadius: 10 },
 				data: rows.value.map((row) => ({
 					name: row.symbol,
-					value: row.value,
+					value: row.marketValue,
 					itemStyle: {
 						color: gradient(row.colors),
 						shadowBlur: 14,
