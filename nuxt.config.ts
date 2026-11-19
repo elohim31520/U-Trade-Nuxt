@@ -73,6 +73,16 @@ export default defineNuxtConfig({
 				clientId: GOOGLE_CLIENT_ID,
 			},
 		],
+		// app/pages/dev/** 是本機專用的學習／除錯頁（例如 /dev/three）。nuxt dev 以外一律從路由表拿掉，
+		// build／generate 就不會產生它們的 chunk 與路由，也不會被部署到 Cloudflare。
+		(_options, nuxt) => {
+			if (nuxt.options.dev) return
+			nuxt.hook('pages:extend', (pages) => {
+				for (let i = pages.length - 1; i >= 0; i--) {
+					if (pages[i].file?.includes('/pages/dev/')) pages.splice(i, 1)
+				}
+			})
+		},
 	],
 	site: {
 		url: WEB_DOMAIN
