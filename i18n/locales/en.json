@@ -167,7 +167,8 @@
 		"language": "Language",
 		"close": "Close menu",
 		"guest_title": "Sign in to sync your portfolio",
-		"guest_desc": "Log trades, track P&L, and view it on any device"
+		"guest_desc": "Log trades, track P&L, and view it on any device",
+		"section_events": "Events"
 	},
 	"footer": {
 		"home": "Home",
@@ -525,6 +526,76 @@
 				"currency": "Index",
 				"description": "A measure of the value of the US Dollar relative to a basket of major foreign currencies."
 			}
+		}
+	},
+	"card_pack": {
+		"title": "Card Pack",
+		"meta_title": "Card Pack - UrTrade",
+		"meta_description": "Open card packs and collect daily trend-analysis cards for popular companies.",
+		"stage_aria": "Card pack game",
+		"scene_aria": "Card packs. Drag to rotate.",
+		"pack_label": "Pack {n}",
+		"chances": "Packs left {n}",
+		"prev": "Previous",
+		"next": "Next",
+		"hint_pick": "Tap any pack to choose it",
+		"action_open": "Tear it open",
+		"status_select": "Drag left or right to browse the other packs.",
+		"status_ready": "Swipe across the seal, or tap the button to tear it open.",
+		"status_loading": "Getting your card…",
+		"status_opening": "Seal torn. Let's see which card it is…",
+		"status_error": "Could not get a result. Please try again later.",
+		"status_no3d": "3D is not available on this device. You can still tap to play.",
+		"back": "Choose another",
+		"skip": "Skip animation",
+		"reveal_title": "Pack opened!",
+		"reveal_tap": "Tap the card to reveal",
+		"reveal_count": "Revealed {n} / {total}",
+		"reveal_flip": "Reveal",
+		"reveal_done": "Collect",
+		"toast_no_chances": "No packs left",
+		"toast_preparing": "Today's packs are being prepared",
+		"status_busy": "Your last pack is still being processed. Please try again shortly.",
+		"records_title": "My Cards",
+		"records_empty": "No packs opened yet. Give it a try!",
+		"rules_title": "How It Works",
+		"rules_empty": "No instructions available.",
+		"info_aria": "Event details",
+		"data_date": "Data as of {d} (US close)",
+		"ticker_label": "Movers",
+		"ticker_item": "{name} {chg}",
+		"ticker_item_volume": "{name} {chg} · vol {vol}",
+		"sound_on": "Turn sound on",
+		"sound_off": "Turn sound off",
+		"share_button": "Share this event",
+		"share_title": "Share with friends",
+		"share_close": "Close",
+		"share_copy": "Copy link",
+		"share_copied": "Link copied",
+		"share_copy_failed": "Could not copy. Please copy the link manually.",
+		"share_more": "More sharing options",
+		"share_url_label": "Event link",
+		"share_text": "Open a card pack and collect trend-analysis cards for popular companies!",
+		"sentiment": {
+			"bullish": "Bullish",
+			"bearish": "Bearish",
+			"neutral": "Neutral"
+		},
+		"analysis": {
+			"aria": "Trend analysis",
+			"as_of": "US close {d}",
+			"watch": "What to watch: ",
+			"close": "Close",
+			"volume": "Volume",
+			"move": "Move",
+			"change20d": "20-day",
+			"disclaimer": "Compiled by AI from recent market data and public information. For reference only; not investment advice. Investing involves risk."
+		},
+		"rarity": {
+			"common": "Common",
+			"rare": "Rare",
+			"epic": "Super Rare",
+			"legendary": "Legendary"
 		}
 	}
 }

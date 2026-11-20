@@ -167,7 +167,8 @@
 		"language": "語言",
 		"close": "關閉選單",
 		"guest_title": "登入以同步你的投資組合",
-		"guest_desc": "紀錄交易、追蹤損益，跨裝置隨時查看"
+		"guest_desc": "紀錄交易、追蹤損益，跨裝置隨時查看",
+		"section_events": "活動"
 	},
 	"footer": {
 		"home": "首頁",
@@ -525,6 +526,76 @@
 				"currency": "Index",
 				"description": "美元對一籃子主要貨幣的綜合強弱指數"
 			}
+		}
+	},
+	"card_pack": {
+		"title": "拆卡包",
+		"meta_title": "拆卡包 - UrTrade",
+		"meta_description": "拆開卡包，收集熱門公司的每日走勢分析卡。",
+		"stage_aria": "拆卡包遊戲",
+		"scene_aria": "可拖曳旋轉的 3D 選擇區",
+		"pack_label": "卡包 {n}",
+		"chances": "剩餘卡包 {n} 包",
+		"prev": "上一個",
+		"next": "下一個",
+		"hint_pick": "點選任意一包卡包",
+		"action_open": "撕開卡包",
+		"status_select": "左右拖曳可以瀏覽其他卡包",
+		"status_ready": "沿著封條左右滑動，或按下方按鈕拆開",
+		"status_loading": "正在取得卡片…",
+		"status_opening": "封條已撕開，看看是哪一張…",
+		"status_error": "暫時無法取得結果，請稍後再試。",
+		"status_no3d": "此裝置無法啟用 3D，仍可點選完成體驗。",
+		"back": "換一個",
+		"skip": "跳過動畫",
+		"reveal_title": "卡包打開了！",
+		"reveal_tap": "點擊卡片揭曉",
+		"reveal_count": "已揭曉 {n} / {total}",
+		"reveal_flip": "揭曉",
+		"reveal_done": "收下卡片",
+		"toast_no_chances": "卡包已用完",
+		"toast_preparing": "今日卡包準備中",
+		"status_busy": "上一包還在處理中，請稍後再試。",
+		"records_title": "我的抽卡紀錄",
+		"records_empty": "還沒有紀錄，拆一包試試手氣。",
+		"rules_title": "玩法說明",
+		"rules_empty": "目前沒有玩法說明。",
+		"info_aria": "活動說明",
+		"data_date": "分析資料：{d}（美東收盤）",
+		"ticker_label": "今日異動",
+		"ticker_item": "{name} {chg}",
+		"ticker_item_volume": "{name} {chg}・量能 {vol}",
+		"sound_on": "開啟音效",
+		"sound_off": "關閉音效",
+		"share_button": "分享活動",
+		"share_title": "分享給朋友",
+		"share_close": "關閉",
+		"share_copy": "複製連結",
+		"share_copied": "已複製連結",
+		"share_copy_failed": "無法複製，請手動複製連結。",
+		"share_more": "更多分享方式",
+		"share_url_label": "活動連結",
+		"share_text": "來拆卡包，收集熱門公司的走勢分析卡！",
+		"sentiment": {
+			"bullish": "偏多",
+			"bearish": "偏空",
+			"neutral": "中性"
+		},
+		"analysis": {
+			"aria": "走勢分析",
+			"as_of": "美東 {d} 收盤",
+			"watch": "後續觀察：",
+			"close": "收盤價",
+			"volume": "量能",
+			"move": "波動",
+			"change20d": "近 20 日",
+			"disclaimer": "AI 依近期行情與公開資訊整理，僅供參考，不構成投資建議。投資有風險，請自行評估。"
+		},
+		"rarity": {
+			"common": "普通",
+			"rare": "稀有",
+			"epic": "超稀有",
+			"legendary": "傳說"
 		}
 	}
 }

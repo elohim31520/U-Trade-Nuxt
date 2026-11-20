@@ -8,6 +8,7 @@
 import type { ResponseData } from '~/types/api'
 import type { BalanceInfo } from '~/types/balance'
 import { createFetchHandlers } from '~/utils/fetchHandlers'
+import type { CardPackDrawResult, CardPackMe, CardPackToday } from '~/types/cardPack'
 import type { MomentumResult } from '~/types/marketSnapshots'
 import type { PortfolioItem, NewPortfolio } from '~/types/portfolio'
 import type { StockMetrics } from '~/types/stockMetrics'
@@ -79,6 +80,20 @@ export default defineNuxtPlugin((nuxtApp) => {
                     }),
                 getAIJobStatus: (jobId: string) =>
                     client<ResponseData<any>>(`/trade/ai-job/${jobId}`),
+
+                // ── card-pack（抽卡需登入）────────────────────────────────
+                /** 卡池好了沒、今日異動（跑馬燈）；沒有抽卡內容 */
+                getCardPackToday: () =>
+                    client<ResponseData<CardPackToday>>('/card-pack/today'),
+                /** 今天還剩幾包、抽卡紀錄 */
+                getCardPackMe: () =>
+                    client<ResponseData<CardPackMe>>('/card-pack/me'),
+                /** 拆一包：後端決定抽哪張、扣次數。503 準備中、429 次數用完、409 上一包處理中 */
+                drawCardPack: () =>
+                    client<ResponseData<CardPackDrawResult>>('/card-pack/draw', { method: 'POST' }),
+                /** 開發環境限定：重設自己的次數與紀錄 */
+                resetCardPack: () =>
+                    client<ResponseData<null>>('/card-pack/dev/reset', { method: 'POST' }),
 
                 // ── user（需 auth 的部分）────────────────────────────────
                 /** login / google-login / logout / me 各自有 specific server route，不在此列 */

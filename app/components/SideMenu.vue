@@ -216,6 +216,12 @@
 			title: 'sidemenu.section_tools',
 			items: [{ to: '/monte-carlo-simulation', icon: 'menu_simulation', text: 'monte-sim.menu' }],
 		},
+		{
+			title: 'sidemenu.section_events',
+			items: [
+				{ to: '/card-pack', icon: 'menu_card_pack', text: 'card_pack.title' },
+			],
+		},
 	]
 
 	// 進場動畫的階梯延遲：帳號卡片是 0，之後每個標題／項目依序 +1

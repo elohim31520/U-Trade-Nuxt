@@ -140,6 +140,7 @@ export default defineNuxtConfig({
 			'/portfolio',
 			'/records',
 			'/market-metrics',
+			'/card-pack',
 		]
 
 		// 有 swr 快取的路由
